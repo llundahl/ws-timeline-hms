@@ -42310,6 +42310,12 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 				hformat: $elm$core$Maybe$Just('HH:mm'),
 				unit: $author$project$Moment$Minute,
 				vformat: $elm$core$Maybe$Just('HH:mm')
+			},
+				{
+				delta: 1,
+				hformat: $elm$core$Maybe$Just('EEEE dd MMM'),
+				unit: $author$project$Moment$Day,
+				vformat: $elm$core$Maybe$Just('dd MMM')
 			}
 			]),
 		snap: 1 / 60,
@@ -42319,25 +42325,49 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 		divs: _List_fromArray(
 			[
 				{
-				delta: 15,
-				hformat: $elm$core$Maybe$Just('mm'),
+				delta: 5,
+				hformat: $elm$core$Maybe$Just('HH:mm'),
 				unit: $author$project$Moment$Minute,
-				vformat: $elm$core$Maybe$Just('mm')
+				vformat: $elm$core$Maybe$Just('HH:mm')
 			},
 				{
 				delta: 1,
-				hformat: $elm$core$Maybe$Just('HH:mm'),
-				unit: $author$project$Moment$Hour,
-				vformat: $elm$core$Maybe$Just('HH:mm')
+				hformat: $elm$core$Maybe$Just('EEEE dd MMM'),
+				unit: $author$project$Moment$Day,
+				vformat: $elm$core$Maybe$Just('dd MMM')
 			}
 			]),
 		snap: 1 / 60,
-		unit: 0.5
+		unit: 0.15
 	},
 		{
 		divs: _List_fromArray(
 			[
-				{delta: 1, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Hour, vformat: $elm$core$Maybe$Nothing},
+				{
+				delta: 15,
+				hformat: $elm$core$Maybe$Just('HH:mm'),
+				unit: $author$project$Moment$Minute,
+				vformat: $elm$core$Maybe$Just('HH:mm')
+			},
+				{
+				delta: 1,
+				hformat: $elm$core$Maybe$Just('EEEE dd MMM'),
+				unit: $author$project$Moment$Day,
+				vformat: $elm$core$Maybe$Just('dd MMM')
+			}
+			]),
+		snap: 1 / 60,
+		unit: 0.4
+	},
+		{
+		divs: _List_fromArray(
+			[
+				{
+				delta: 1,
+				hformat: $elm$core$Maybe$Just('HH:00'),
+				unit: $author$project$Moment$Hour,
+				vformat: $elm$core$Maybe$Just('HH:00')
+			},
 				{
 				delta: 1,
 				hformat: $elm$core$Maybe$Just('dd MMM'),
@@ -42346,7 +42376,7 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 			}
 			]),
 		snap: 1 / 60,
-		unit: 2.0
+		unit: 1.0
 	},
 		{
 		divs: _List_fromArray(
@@ -42365,11 +42395,11 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 			}
 			]),
 		snap: 1 / 60,
-		unit: 1000.0
+		unit: 10.0
 	},
 		$author$project$Timeline$Axis$lastDef
 	]);
-var $author$project$Timeline$Axis$axisUnit = 10;
+var $author$project$Timeline$Axis$axisUnit = 5;
 var $author$project$Timeline$Axis$getGrid = function (val) {
 	var unit = (val / 3600000) * $author$project$Timeline$Axis$axisUnit;
 	return A2(
