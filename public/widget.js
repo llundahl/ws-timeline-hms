@@ -42283,7 +42283,6 @@ var $author$project$Moment$Day = {$: 'Day'};
 var $author$project$Moment$Hour = {$: 'Hour'};
 var $author$project$Moment$Minute = {$: 'Minute'};
 var $author$project$Moment$Month = {$: 'Month'};
-var $author$project$Moment$Second = {$: 'Second'};
 var $author$project$Moment$Week = {$: 'Week'};
 var $author$project$Moment$Year = {$: 'Year'};
 var $author$project$Timeline$Axis$lastDef = {
@@ -42308,12 +42307,6 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 			[
 				{
 				delta: 1,
-				hformat: $elm$core$Maybe$Just('ss'),
-				unit: $author$project$Moment$Second,
-				vformat: $elm$core$Maybe$Just('ss')
-			},
-				{
-				delta: 1,
 				hformat: $elm$core$Maybe$Just('HH:mm'),
 				unit: $author$project$Moment$Minute,
 				vformat: $elm$core$Maybe$Just('HH:mm')
@@ -42326,12 +42319,11 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 		divs: _List_fromArray(
 			[
 				{
-				delta: 5,
+				delta: 15,
 				hformat: $elm$core$Maybe$Just('mm'),
 				unit: $author$project$Moment$Minute,
 				vformat: $elm$core$Maybe$Just('mm')
 			},
-				{delta: 15, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Minute, vformat: $elm$core$Maybe$Nothing},
 				{
 				delta: 1,
 				hformat: $elm$core$Maybe$Just('HH:mm'),
@@ -42340,7 +42332,7 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 			}
 			]),
 		snap: 1 / 60,
-		unit: 0.2
+		unit: 0.5
 	},
 		{
 		divs: _List_fromArray(
@@ -42354,177 +42346,26 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 			}
 			]),
 		snap: 1 / 60,
-		unit: 1.0
+		unit: 2.0
 	},
 		{
 		divs: _List_fromArray(
 			[
-				{delta: 30, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Minute, vformat: $elm$core$Maybe$Nothing},
-				{delta: 1, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Hour, vformat: $elm$core$Maybe$Nothing},
 				{
 				delta: 1,
-				hformat: $elm$core$Maybe$Just('xx'),
+				hformat: $elm$core$Maybe$Just('dd/MM'),
 				unit: $author$project$Moment$Day,
-				vformat: $elm$core$Maybe$Just('x')
-			}
-			]),
-		snap: 1 / 4,
-		unit: 1 / 5
-	},
-		{
-		divs: _List_fromArray(
-			[
-				{delta: 2, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Hour, vformat: $elm$core$Maybe$Nothing},
-				{
-				delta: 12,
-				hformat: $elm$core$Maybe$Just(''),
-				unit: $author$project$Moment$Hour,
-				vformat: $elm$core$Maybe$Just('')
+				vformat: $elm$core$Maybe$Just('dd/MM')
 			},
 				{
 				delta: 1,
-				hformat: $elm$core$Maybe$Just('xx'),
-				unit: $author$project$Moment$Day,
-				vformat: $elm$core$Maybe$Just('x')
-			}
-			]),
-		snap: 1 / 2,
-		unit: 1 / 2
-	},
-		{
-		divs: _List_fromArray(
-			[
-				{delta: 3, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Hour, vformat: $elm$core$Maybe$Nothing},
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('ddd dd'),
-				unit: $author$project$Moment$Day,
-				vformat: $elm$core$Maybe$Just('ddd dd')
-			},
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('MMMM yyyy'),
+				hformat: $elm$core$Maybe$Just('MMM yyyy'),
 				unit: $author$project$Moment$Month,
 				vformat: $elm$core$Maybe$Just('MMM yyyy')
 			}
 			]),
-		snap: 1,
-		unit: 1
-	},
-		{
-		divs: _List_fromArray(
-			[
-				{delta: 6, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Hour, vformat: $elm$core$Maybe$Nothing},
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('ddd dd'),
-				unit: $author$project$Moment$Day,
-				vformat: $elm$core$Maybe$Just('ddd dd/MM')
-			},
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('MMMM yyyy'),
-				unit: $author$project$Moment$Month,
-				vformat: $elm$core$Maybe$Just('MMM yyyy')
-			}
-			]),
-		snap: 2,
-		unit: 2
-	},
-		{
-		divs: _List_fromArray(
-			[
-				{
-				delta: 12,
-				hformat: $elm$core$Maybe$Just(''),
-				unit: $author$project$Moment$Hour,
-				vformat: $elm$core$Maybe$Nothing
-			},
-				{delta: 1, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Day, vformat: $elm$core$Maybe$Nothing},
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('MMMM yyyy'),
-				unit: $author$project$Moment$Month,
-				vformat: $elm$core$Maybe$Just('MMM yyyy')
-			}
-			]),
-		snap: 6,
-		unit: 4
-	},
-		{
-		divs: _List_fromArray(
-			[
-				{delta: 1, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Day, vformat: $elm$core$Maybe$Nothing},
-				{delta: 1, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Week, vformat: $elm$core$Maybe$Nothing},
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('MMMM yyyy'),
-				unit: $author$project$Moment$Month,
-				vformat: $elm$core$Maybe$Just('MMM yyyy')
-			}
-			]),
-		snap: 12,
-		unit: 6
-	},
-		{
-		divs: _List_fromArray(
-			[
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('dd'),
-				unit: $author$project$Moment$Day,
-				vformat: $elm$core$Maybe$Nothing
-			},
-				{delta: 1, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Week, vformat: $elm$core$Maybe$Nothing},
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('MMMM yyyy'),
-				unit: $author$project$Moment$Month,
-				vformat: $elm$core$Maybe$Just('MMM yyyy')
-			}
-			]),
-		snap: 12,
-		unit: 12
-	},
-		{
-		divs: _List_fromArray(
-			[
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just(''),
-				unit: $author$project$Moment$Day,
-				vformat: $elm$core$Maybe$Just('')
-			},
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('ddd dd'),
-				unit: $author$project$Moment$Week,
-				vformat: $elm$core$Maybe$Just('ddd dd')
-			},
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('MMMM yyyy'),
-				unit: $author$project$Moment$Month,
-				vformat: $elm$core$Maybe$Just('MMM yyyy')
-			}
-			]),
-		snap: 24,
-		unit: 40
-	},
-		{
-		divs: _List_fromArray(
-			[
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('dd'),
-				unit: $author$project$Moment$Week,
-				vformat: $elm$core$Maybe$Just('dd')
-			},
-				{delta: 1, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Month, vformat: $elm$core$Maybe$Nothing},
-				{delta: 1, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Year, vformat: $elm$core$Maybe$Nothing}
-			]),
-		snap: 168,
-		unit: 60
+		snap: 1 / 60,
+		unit: 1000.0
 	},
 		$author$project$Timeline$Axis$lastDef
 	]);
@@ -42854,7 +42695,7 @@ var $author$project$Timeline$Update$sectionsWheel = F3(
 		if (altKey) {
 			var zoom = A2(
 				$elm$core$Basics$min,
-				1000000,
+				40000,
 				A2(
 					$elm$core$Basics$max,
 					_Utils_eq(box.direction, $author$project$Timeline$Models$Horizontal) ? 2 : 5,
