@@ -295,7 +295,7 @@ Minute ->
                     , millisecond = 0
                 }
 
-        Second -> -- Add this at the very end
+Second -> 
             let
                 parts =
                     TE.posixToParts zone date
