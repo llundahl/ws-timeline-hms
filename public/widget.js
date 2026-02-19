@@ -42320,27 +42320,27 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 			}
 			]),
 		snap: 1 / 60,
-		unit: 20.0
+		unit: 0.5
 	},
 		{
 		divs: _List_fromArray(
 			[
 				{
 				delta: 5,
-				hformat: $elm$core$Maybe$Just(''),
+				hformat: $elm$core$Maybe$Just('mm'),
 				unit: $author$project$Moment$Minute,
-				vformat: $elm$core$Maybe$Just('')
+				vformat: $elm$core$Maybe$Just('mm')
 			},
 				{delta: 15, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Minute, vformat: $elm$core$Maybe$Nothing},
 				{
 				delta: 1,
-				hformat: $elm$core$Maybe$Just('xx'),
+				hformat: $elm$core$Maybe$Just('HH:mm'),
 				unit: $author$project$Moment$Hour,
-				vformat: $elm$core$Maybe$Just('x')
+				vformat: $elm$core$Maybe$Just('HH:mm')
 			}
 			]),
 		snap: 1 / 60,
-		unit: 10.0
+		unit: 0.1
 	},
 		{
 		divs: _List_fromArray(
@@ -42349,13 +42349,13 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 				{delta: 1, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Hour, vformat: $elm$core$Maybe$Nothing},
 				{
 				delta: 1,
-				hformat: $elm$core$Maybe$Just('xx'),
+				hformat: $elm$core$Maybe$Just('dd MMM'),
 				unit: $author$project$Moment$Day,
-				vformat: $elm$core$Maybe$Just('x')
+				vformat: $elm$core$Maybe$Just('dd MMM')
 			}
 			]),
 		snap: 1 / 60,
-		unit: 5.0
+		unit: 1 / 6
 	},
 		{
 		divs: _List_fromArray(
