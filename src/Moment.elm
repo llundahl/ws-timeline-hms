@@ -251,6 +251,7 @@ type Moment
     | Day
     | Hour
     | Minute
+    | Second
 
 
 startOf : Moment -> Zone -> Int -> Posix -> Posix
@@ -282,7 +283,7 @@ startOf unit zone delta date =
                 }
 
         -- TE.floor TE.Hour zone date
-        Minute ->
+Minute ->
             let
                 parts =
                     TE.posixToParts zone date
@@ -291,6 +292,17 @@ startOf unit zone delta date =
                 { parts
                     | minute = parts.minute - modBy delta parts.minute
                     , second = 0
+                    , millisecond = 0
+                }
+
+        Second -> -- Add this at the very end
+            let
+                parts =
+                    TE.posixToParts zone date
+            in
+            TE.partsToPosix zone
+                { parts
+                    | second = parts.second - modBy delta parts.second
                     , millisecond = 0
                 }
 
@@ -319,6 +331,9 @@ add unit plus zone date =
 
         Minute ->
             TE.add TE.Minute plus zone date
+        
+        Second ->
+            TE.add TE.Second plus zone date
 
 
 format : Locale -> Zone -> Moment -> Maybe String -> Posix -> String
