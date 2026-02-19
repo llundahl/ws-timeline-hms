@@ -42282,8 +42282,8 @@ var $author$project$Timeline$Update$findGroupAtPosition = F2(
 var $author$project$Moment$Day = {$: 'Day'};
 var $author$project$Moment$Hour = {$: 'Hour'};
 var $author$project$Moment$Minute = {$: 'Minute'};
-var $author$project$Moment$Month = {$: 'Month'};
 var $author$project$Moment$Second = {$: 'Second'};
+var $author$project$Moment$Month = {$: 'Month'};
 var $author$project$Moment$Week = {$: 'Week'};
 var $author$project$Moment$Year = {$: 'Year'};
 var $author$project$Timeline$Axis$lastDef = {
@@ -42317,16 +42317,10 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 				hformat: $elm$core$Maybe$Just('HH:mm'),
 				unit: $author$project$Moment$Minute,
 				vformat: $elm$core$Maybe$Just('HH:mm')
-			},
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('EEEE dd MMM'),
-				unit: $author$project$Moment$Day,
-				vformat: $elm$core$Maybe$Just('dd MMM')
 			}
 			]),
 		snap: 1 / 3600,
-		unit: 0.02
+		unit: 0.002
 	},
 		{
 		divs: _List_fromArray(
@@ -42345,7 +42339,7 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 			}
 			]),
 		snap: 1 / 60,
-		unit: 0.08
+		unit: 0.02
 	},
 		{
 		divs: _List_fromArray(
@@ -42374,12 +42368,6 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 				hformat: $elm$core$Maybe$Just('HH:mm'),
 				unit: $author$project$Moment$Minute,
 				vformat: $elm$core$Maybe$Just('HH:mm')
-			},
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('EEEE dd MMM'),
-				unit: $author$project$Moment$Day,
-				vformat: $elm$core$Maybe$Just('dd MMM')
 			}
 			]),
 		snap: 1 / 60,
@@ -42393,35 +42381,10 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 				hformat: $elm$core$Maybe$Just('HH:00'),
 				unit: $author$project$Moment$Hour,
 				vformat: $elm$core$Maybe$Just('HH:00')
-			},
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('dd MMM'),
-				unit: $author$project$Moment$Day,
-				vformat: $elm$core$Maybe$Just('dd MMM')
 			}
 			]),
 		snap: 1 / 60,
 		unit: 1.0
-	},
-		{
-		divs: _List_fromArray(
-			[
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('dd/MM'),
-				unit: $author$project$Moment$Day,
-				vformat: $elm$core$Maybe$Just('dd/MM')
-			},
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('MMM yyyy'),
-				unit: $author$project$Moment$Month,
-				vformat: $elm$core$Maybe$Just('MMM yyyy')
-			}
-			]),
-		snap: 1 / 60,
-		unit: 10.0
 	},
 		$author$project$Timeline$Axis$lastDef
 	]);
@@ -42759,7 +42722,7 @@ var $author$project$Timeline$Update$sectionsWheel = F3(
 			var newstart = (((box.start - startPixel) / box.zoom) * zoom) + startPixel;
 			var newbox = _Utils_update(
 				box,
-				{start: newstart, zoom: zoom, zoomChange: 5});
+				{start: newstart, zoom: zoom, zoomChange: 2});
 			return $author$project$Timeline$Action$changeWheelAction(newbox);
 		} else {
 			var unit = $author$project$Timeline$Update$getUnit(box.zoom);
