@@ -42319,59 +42319,27 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 				vformat: $elm$core$Maybe$Just('HH:mm')
 			}
 			]),
-		snap: 1 / 3600,
-		unit: 0.002
+		snap: 5 / 60,
+		unit: 0.005
 	},
 		{
 		divs: _List_fromArray(
 			[
 				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('mm'),
-				unit: $author$project$Moment$Minute,
-				vformat: $elm$core$Maybe$Just('mm')
+				delta: 30,
+				hformat: $elm$core$Maybe$Just('ss'),
+				unit: $author$project$Moment$Second,
+				vformat: $elm$core$Maybe$Just('ss')
 			},
 				{
 				delta: 1,
-				hformat: $elm$core$Maybe$Just('EEEE dd MMM'),
-				unit: $author$project$Moment$Day,
-				vformat: $elm$core$Maybe$Just('dd MMM')
-			}
-			]),
-		snap: 1 / 60,
-		unit: 0.02
-	},
-		{
-		divs: _List_fromArray(
-			[
-				{
-				delta: 5,
-				hformat: $elm$core$Maybe$Just('HH:mm'),
-				unit: $author$project$Moment$Minute,
-				vformat: $elm$core$Maybe$Just('HH:mm')
-			},
-				{
-				delta: 1,
-				hformat: $elm$core$Maybe$Just('EEEE dd MMM'),
-				unit: $author$project$Moment$Day,
-				vformat: $elm$core$Maybe$Just('dd MMM')
-			}
-			]),
-		snap: 1 / 60,
-		unit: 0.15
-	},
-		{
-		divs: _List_fromArray(
-			[
-				{
-				delta: 15,
 				hformat: $elm$core$Maybe$Just('HH:mm'),
 				unit: $author$project$Moment$Minute,
 				vformat: $elm$core$Maybe$Just('HH:mm')
 			}
 			]),
-		snap: 1 / 60,
-		unit: 0.4
+		snap: 30 / 60,
+		unit: 0.05
 	},
 		{
 		divs: _List_fromArray(
@@ -42381,10 +42349,29 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 				hformat: $elm$core$Maybe$Just('HH:00'),
 				unit: $author$project$Moment$Hour,
 				vformat: $elm$core$Maybe$Just('HH:00')
+			},
+				{
+				delta: 1,
+				hformat: $elm$core$Maybe$Just('dd MMM'),
+				unit: $author$project$Moment$Day,
+				vformat: $elm$core$Maybe$Just('dd MMM')
 			}
 			]),
 		snap: 1 / 60,
-		unit: 1.0
+		unit: 0.5
+	},
+		{
+		divs: _List_fromArray(
+			[
+				{
+				delta: 1,
+				hformat: $elm$core$Maybe$Just('dd/MM'),
+				unit: $author$project$Moment$Day,
+				vformat: $elm$core$Maybe$Just('dd/MM')
+			}
+			]),
+		snap: 1 / 60,
+		unit: 100.0
 	},
 		$author$project$Timeline$Axis$lastDef
 	]);
@@ -42718,11 +42705,11 @@ var $author$project$Timeline$Update$sectionsWheel = F3(
 				A2(
 					$elm$core$Basics$max,
 					_Utils_eq(box.direction, $author$project$Timeline$Models$Horizontal) ? 2 : 5,
-					box.zoom - ((dy / 200) * box.zoom)));
+					box.zoom - ((dy / 500) * box.zoom)));
 			var newstart = (((box.start - startPixel) / box.zoom) * zoom) + startPixel;
 			var newbox = _Utils_update(
 				box,
-				{start: newstart, zoom: zoom, zoomChange: 2});
+				{start: newstart, zoom: zoom, zoomChange: 1});
 			return $author$project$Timeline$Action$changeWheelAction(newbox);
 		} else {
 			var unit = $author$project$Timeline$Update$getUnit(box.zoom);
@@ -47771,12 +47758,8 @@ var $author$project$Timeline$SectionsMove = function (a) {
 var $author$project$Timeline$SectionsUp = function (a) {
 	return {$: 'SectionsUp', a: a};
 };
-var $enkidatron$elm_cldr$Cldr$Format$Length$Short = {$: 'Short'};
 var $author$project$Timeline$StartGroupsBarResize = function (a) {
 	return {$: 'StartGroupsBarResize', a: a};
-};
-var $enkidatron$elm_cldr$Cldr$Format$DateTime$TimeOnly = function (a) {
-	return {$: 'TimeOnly', a: a};
 };
 var $author$project$Timeline$SectionsWheel = function (a) {
 	return {$: 'SectionsWheel', a: a};
@@ -48462,6 +48445,10 @@ var $author$project$Timeline$drawRowsBackground = F3(
 						}),
 					$elm$core$Dict$toList(groups))));
 	});
+var $enkidatron$elm_cldr$Cldr$Format$Length$Short = {$: 'Short'};
+var $enkidatron$elm_cldr$Cldr$Format$DateTime$TimeOnly = function (a) {
+	return {$: 'TimeOnly', a: a};
+};
 var $enkidatron$elm_cldr$Cldr$Format$DateTime$getOffsets = F2(
 	function (zone, posix) {
 		var secondOffset = A2($elm$time$Time$toSecond, zone, posix) - A2($elm$time$Time$toSecond, $elm$time$Time$utc, posix);
@@ -50297,213 +50284,6 @@ var $author$project$Moment$formatI18n = F4(
 					$author$project$Moment$group(
 						A2($elm$core$String$split, '', fmt)))));
 	});
-var $author$project$Timeline$Axis$DrawLine = F3(
-	function (a, b, c) {
-		return {$: 'DrawLine', a: a, b: b, c: c};
-	});
-var $author$project$Timeline$Axis$DrawText = F4(
-	function (a, b, c, d) {
-		return {$: 'DrawText', a: a, b: b, c: c, d: d};
-	});
-var $justinmimbs$time_extra$Time$Extra$Day = {$: 'Day'};
-var $justinmimbs$time_extra$Time$Extra$Hour = {$: 'Hour'};
-var $justinmimbs$time_extra$Time$Extra$Minute = {$: 'Minute'};
-var $justinmimbs$time_extra$Time$Extra$Month = {$: 'Month'};
-var $justinmimbs$time_extra$Time$Extra$Second = {$: 'Second'};
-var $justinmimbs$time_extra$Time$Extra$Year = {$: 'Year'};
-var $justinmimbs$date$Date$Days = {$: 'Days'};
-var $justinmimbs$time_extra$Time$Extra$Millisecond = {$: 'Millisecond'};
-var $justinmimbs$date$Date$Months = {$: 'Months'};
-var $justinmimbs$date$Date$add = F3(
-	function (unit, n, _v0) {
-		var rd = _v0.a;
-		switch (unit.$) {
-			case 'Years':
-				return A3(
-					$justinmimbs$date$Date$add,
-					$justinmimbs$date$Date$Months,
-					12 * n,
-					$justinmimbs$date$Date$RD(rd));
-			case 'Months':
-				var date = $justinmimbs$date$Date$toCalendarDate(
-					$justinmimbs$date$Date$RD(rd));
-				var wholeMonths = ((12 * (date.year - 1)) + ($justinmimbs$date$Date$monthToNumber(date.month) - 1)) + n;
-				var m = $justinmimbs$date$Date$numberToMonth(
-					A2($elm$core$Basics$modBy, 12, wholeMonths) + 1);
-				var y = A2($justinmimbs$date$Date$floorDiv, wholeMonths, 12) + 1;
-				return $justinmimbs$date$Date$RD(
-					($justinmimbs$date$Date$daysBeforeYear(y) + A2($justinmimbs$date$Date$daysBeforeMonth, y, m)) + A2(
-						$elm$core$Basics$min,
-						date.day,
-						A2($justinmimbs$date$Date$daysInMonth, y, m)));
-			case 'Weeks':
-				return $justinmimbs$date$Date$RD(rd + (7 * n));
-			default:
-				return $justinmimbs$date$Date$RD(rd + n);
-		}
-	});
-var $justinmimbs$time_extra$Time$Extra$add = F4(
-	function (interval, n, zone, posix) {
-		add:
-		while (true) {
-			switch (interval.$) {
-				case 'Millisecond':
-					return $elm$time$Time$millisToPosix(
-						$elm$time$Time$posixToMillis(posix) + n);
-				case 'Second':
-					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Millisecond,
-						$temp$n = n * 1000,
-						$temp$zone = zone,
-						$temp$posix = posix;
-					interval = $temp$interval;
-					n = $temp$n;
-					zone = $temp$zone;
-					posix = $temp$posix;
-					continue add;
-				case 'Minute':
-					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Millisecond,
-						$temp$n = n * 60000,
-						$temp$zone = zone,
-						$temp$posix = posix;
-					interval = $temp$interval;
-					n = $temp$n;
-					zone = $temp$zone;
-					posix = $temp$posix;
-					continue add;
-				case 'Hour':
-					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Millisecond,
-						$temp$n = n * 3600000,
-						$temp$zone = zone,
-						$temp$posix = posix;
-					interval = $temp$interval;
-					n = $temp$n;
-					zone = $temp$zone;
-					posix = $temp$posix;
-					continue add;
-				case 'Day':
-					return A3(
-						$justinmimbs$time_extra$Time$Extra$posixFromDateTime,
-						zone,
-						A3(
-							$justinmimbs$date$Date$add,
-							$justinmimbs$date$Date$Days,
-							n,
-							A2($justinmimbs$date$Date$fromPosix, zone, posix)),
-						A2($justinmimbs$time_extra$Time$Extra$timeFromPosix, zone, posix));
-				case 'Month':
-					return A3(
-						$justinmimbs$time_extra$Time$Extra$posixFromDateTime,
-						zone,
-						A3(
-							$justinmimbs$date$Date$add,
-							$justinmimbs$date$Date$Months,
-							n,
-							A2($justinmimbs$date$Date$fromPosix, zone, posix)),
-						A2($justinmimbs$time_extra$Time$Extra$timeFromPosix, zone, posix));
-				case 'Year':
-					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Month,
-						$temp$n = n * 12,
-						$temp$zone = zone,
-						$temp$posix = posix;
-					interval = $temp$interval;
-					n = $temp$n;
-					zone = $temp$zone;
-					posix = $temp$posix;
-					continue add;
-				case 'Quarter':
-					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Month,
-						$temp$n = n * 3,
-						$temp$zone = zone,
-						$temp$posix = posix;
-					interval = $temp$interval;
-					n = $temp$n;
-					zone = $temp$zone;
-					posix = $temp$posix;
-					continue add;
-				case 'Week':
-					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Day,
-						$temp$n = n * 7,
-						$temp$zone = zone,
-						$temp$posix = posix;
-					interval = $temp$interval;
-					n = $temp$n;
-					zone = $temp$zone;
-					posix = $temp$posix;
-					continue add;
-				default:
-					var weekday = interval;
-					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Day,
-						$temp$n = n * 7,
-						$temp$zone = zone,
-						$temp$posix = posix;
-					interval = $temp$interval;
-					n = $temp$n;
-					zone = $temp$zone;
-					posix = $temp$posix;
-					continue add;
-			}
-		}
-	});
-var $author$project$Moment$add = F4(
-	function (unit, plus, zone, date) {
-		switch (unit.$) {
-			case 'Year':
-				return A4($justinmimbs$time_extra$Time$Extra$add, $justinmimbs$time_extra$Time$Extra$Year, plus, zone, date);
-			case 'Month':
-				return A4($justinmimbs$time_extra$Time$Extra$add, $justinmimbs$time_extra$Time$Extra$Month, plus, zone, date);
-			case 'Week':
-				return A4($justinmimbs$time_extra$Time$Extra$add, $justinmimbs$time_extra$Time$Extra$Week, plus, zone, date);
-			case 'Day':
-				return A4($justinmimbs$time_extra$Time$Extra$add, $justinmimbs$time_extra$Time$Extra$Day, plus, zone, date);
-			case 'Hour':
-				return A4($justinmimbs$time_extra$Time$Extra$add, $justinmimbs$time_extra$Time$Extra$Hour, plus, zone, date);
-			case 'Minute':
-				return A4($justinmimbs$time_extra$Time$Extra$add, $justinmimbs$time_extra$Time$Extra$Minute, plus, zone, date);
-			default:
-				return A4($justinmimbs$time_extra$Time$Extra$add, $justinmimbs$time_extra$Time$Extra$Second, plus, zone, date);
-		}
-	});
-var $elm$core$Array$fromListHelp = F3(
-	function (list, nodeList, nodeListSize) {
-		fromListHelp:
-		while (true) {
-			var _v0 = A2($elm$core$Elm$JsArray$initializeFromList, $elm$core$Array$branchFactor, list);
-			var jsArray = _v0.a;
-			var remainingItems = _v0.b;
-			if (_Utils_cmp(
-				$elm$core$Elm$JsArray$length(jsArray),
-				$elm$core$Array$branchFactor) < 0) {
-				return A2(
-					$elm$core$Array$builderToArray,
-					true,
-					{nodeList: nodeList, nodeListSize: nodeListSize, tail: jsArray});
-			} else {
-				var $temp$list = remainingItems,
-					$temp$nodeList = A2(
-					$elm$core$List$cons,
-					$elm$core$Array$Leaf(jsArray),
-					nodeList),
-					$temp$nodeListSize = nodeListSize + 1;
-				list = $temp$list;
-				nodeList = $temp$nodeList;
-				nodeListSize = $temp$nodeListSize;
-				continue fromListHelp;
-			}
-		}
-	});
-var $elm$core$Array$fromList = function (list) {
-	if (!list.b) {
-		return $elm$core$Array$empty;
-	} else {
-		return A3($elm$core$Array$fromListHelp, list, _List_Nil, 0);
-	}
-};
-var $author$project$Timeline$Axis$axisWeight = $elm$core$Array$fromList(
-	_List_fromArray(
-		[0.5, 1, 2]));
-var $author$project$Timeline$Axis$fontSize = $elm$core$Array$fromList(
-	_List_fromArray(
-		[9, 10, 11]));
 var $justinmimbs$date$Date$ordinalDay = A2(
 	$elm$core$Basics$composeR,
 	$justinmimbs$date$Date$toOrdinalDate,
@@ -51117,6 +50897,213 @@ var $author$project$Moment$format = F5(
 			}
 		}
 	});
+var $author$project$Timeline$Axis$DrawLine = F3(
+	function (a, b, c) {
+		return {$: 'DrawLine', a: a, b: b, c: c};
+	});
+var $author$project$Timeline$Axis$DrawText = F4(
+	function (a, b, c, d) {
+		return {$: 'DrawText', a: a, b: b, c: c, d: d};
+	});
+var $justinmimbs$time_extra$Time$Extra$Day = {$: 'Day'};
+var $justinmimbs$time_extra$Time$Extra$Hour = {$: 'Hour'};
+var $justinmimbs$time_extra$Time$Extra$Minute = {$: 'Minute'};
+var $justinmimbs$time_extra$Time$Extra$Month = {$: 'Month'};
+var $justinmimbs$time_extra$Time$Extra$Second = {$: 'Second'};
+var $justinmimbs$time_extra$Time$Extra$Year = {$: 'Year'};
+var $justinmimbs$date$Date$Days = {$: 'Days'};
+var $justinmimbs$time_extra$Time$Extra$Millisecond = {$: 'Millisecond'};
+var $justinmimbs$date$Date$Months = {$: 'Months'};
+var $justinmimbs$date$Date$add = F3(
+	function (unit, n, _v0) {
+		var rd = _v0.a;
+		switch (unit.$) {
+			case 'Years':
+				return A3(
+					$justinmimbs$date$Date$add,
+					$justinmimbs$date$Date$Months,
+					12 * n,
+					$justinmimbs$date$Date$RD(rd));
+			case 'Months':
+				var date = $justinmimbs$date$Date$toCalendarDate(
+					$justinmimbs$date$Date$RD(rd));
+				var wholeMonths = ((12 * (date.year - 1)) + ($justinmimbs$date$Date$monthToNumber(date.month) - 1)) + n;
+				var m = $justinmimbs$date$Date$numberToMonth(
+					A2($elm$core$Basics$modBy, 12, wholeMonths) + 1);
+				var y = A2($justinmimbs$date$Date$floorDiv, wholeMonths, 12) + 1;
+				return $justinmimbs$date$Date$RD(
+					($justinmimbs$date$Date$daysBeforeYear(y) + A2($justinmimbs$date$Date$daysBeforeMonth, y, m)) + A2(
+						$elm$core$Basics$min,
+						date.day,
+						A2($justinmimbs$date$Date$daysInMonth, y, m)));
+			case 'Weeks':
+				return $justinmimbs$date$Date$RD(rd + (7 * n));
+			default:
+				return $justinmimbs$date$Date$RD(rd + n);
+		}
+	});
+var $justinmimbs$time_extra$Time$Extra$add = F4(
+	function (interval, n, zone, posix) {
+		add:
+		while (true) {
+			switch (interval.$) {
+				case 'Millisecond':
+					return $elm$time$Time$millisToPosix(
+						$elm$time$Time$posixToMillis(posix) + n);
+				case 'Second':
+					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Millisecond,
+						$temp$n = n * 1000,
+						$temp$zone = zone,
+						$temp$posix = posix;
+					interval = $temp$interval;
+					n = $temp$n;
+					zone = $temp$zone;
+					posix = $temp$posix;
+					continue add;
+				case 'Minute':
+					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Millisecond,
+						$temp$n = n * 60000,
+						$temp$zone = zone,
+						$temp$posix = posix;
+					interval = $temp$interval;
+					n = $temp$n;
+					zone = $temp$zone;
+					posix = $temp$posix;
+					continue add;
+				case 'Hour':
+					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Millisecond,
+						$temp$n = n * 3600000,
+						$temp$zone = zone,
+						$temp$posix = posix;
+					interval = $temp$interval;
+					n = $temp$n;
+					zone = $temp$zone;
+					posix = $temp$posix;
+					continue add;
+				case 'Day':
+					return A3(
+						$justinmimbs$time_extra$Time$Extra$posixFromDateTime,
+						zone,
+						A3(
+							$justinmimbs$date$Date$add,
+							$justinmimbs$date$Date$Days,
+							n,
+							A2($justinmimbs$date$Date$fromPosix, zone, posix)),
+						A2($justinmimbs$time_extra$Time$Extra$timeFromPosix, zone, posix));
+				case 'Month':
+					return A3(
+						$justinmimbs$time_extra$Time$Extra$posixFromDateTime,
+						zone,
+						A3(
+							$justinmimbs$date$Date$add,
+							$justinmimbs$date$Date$Months,
+							n,
+							A2($justinmimbs$date$Date$fromPosix, zone, posix)),
+						A2($justinmimbs$time_extra$Time$Extra$timeFromPosix, zone, posix));
+				case 'Year':
+					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Month,
+						$temp$n = n * 12,
+						$temp$zone = zone,
+						$temp$posix = posix;
+					interval = $temp$interval;
+					n = $temp$n;
+					zone = $temp$zone;
+					posix = $temp$posix;
+					continue add;
+				case 'Quarter':
+					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Month,
+						$temp$n = n * 3,
+						$temp$zone = zone,
+						$temp$posix = posix;
+					interval = $temp$interval;
+					n = $temp$n;
+					zone = $temp$zone;
+					posix = $temp$posix;
+					continue add;
+				case 'Week':
+					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Day,
+						$temp$n = n * 7,
+						$temp$zone = zone,
+						$temp$posix = posix;
+					interval = $temp$interval;
+					n = $temp$n;
+					zone = $temp$zone;
+					posix = $temp$posix;
+					continue add;
+				default:
+					var weekday = interval;
+					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Day,
+						$temp$n = n * 7,
+						$temp$zone = zone,
+						$temp$posix = posix;
+					interval = $temp$interval;
+					n = $temp$n;
+					zone = $temp$zone;
+					posix = $temp$posix;
+					continue add;
+			}
+		}
+	});
+var $author$project$Moment$add = F4(
+	function (unit, plus, zone, date) {
+		switch (unit.$) {
+			case 'Year':
+				return A4($justinmimbs$time_extra$Time$Extra$add, $justinmimbs$time_extra$Time$Extra$Year, plus, zone, date);
+			case 'Month':
+				return A4($justinmimbs$time_extra$Time$Extra$add, $justinmimbs$time_extra$Time$Extra$Month, plus, zone, date);
+			case 'Week':
+				return A4($justinmimbs$time_extra$Time$Extra$add, $justinmimbs$time_extra$Time$Extra$Week, plus, zone, date);
+			case 'Day':
+				return A4($justinmimbs$time_extra$Time$Extra$add, $justinmimbs$time_extra$Time$Extra$Day, plus, zone, date);
+			case 'Hour':
+				return A4($justinmimbs$time_extra$Time$Extra$add, $justinmimbs$time_extra$Time$Extra$Hour, plus, zone, date);
+			case 'Minute':
+				return A4($justinmimbs$time_extra$Time$Extra$add, $justinmimbs$time_extra$Time$Extra$Minute, plus, zone, date);
+			default:
+				return A4($justinmimbs$time_extra$Time$Extra$add, $justinmimbs$time_extra$Time$Extra$Second, plus, zone, date);
+		}
+	});
+var $elm$core$Array$fromListHelp = F3(
+	function (list, nodeList, nodeListSize) {
+		fromListHelp:
+		while (true) {
+			var _v0 = A2($elm$core$Elm$JsArray$initializeFromList, $elm$core$Array$branchFactor, list);
+			var jsArray = _v0.a;
+			var remainingItems = _v0.b;
+			if (_Utils_cmp(
+				$elm$core$Elm$JsArray$length(jsArray),
+				$elm$core$Array$branchFactor) < 0) {
+				return A2(
+					$elm$core$Array$builderToArray,
+					true,
+					{nodeList: nodeList, nodeListSize: nodeListSize, tail: jsArray});
+			} else {
+				var $temp$list = remainingItems,
+					$temp$nodeList = A2(
+					$elm$core$List$cons,
+					$elm$core$Array$Leaf(jsArray),
+					nodeList),
+					$temp$nodeListSize = nodeListSize + 1;
+				list = $temp$list;
+				nodeList = $temp$nodeList;
+				nodeListSize = $temp$nodeListSize;
+				continue fromListHelp;
+			}
+		}
+	});
+var $elm$core$Array$fromList = function (list) {
+	if (!list.b) {
+		return $elm$core$Array$empty;
+	} else {
+		return A3($elm$core$Array$fromListHelp, list, _List_Nil, 0);
+	}
+};
+var $author$project$Timeline$Axis$axisWeight = $elm$core$Array$fromList(
+	_List_fromArray(
+		[0.5, 1, 2]));
+var $author$project$Timeline$Axis$fontSize = $elm$core$Array$fromList(
+	_List_fromArray(
+		[9, 10, 11]));
 var $elm$core$Array$bitMask = 4294967295 >>> (32 - $elm$core$Array$shiftStep);
 var $elm$core$Elm$JsArray$unsafeGet = _JsArray_unsafeGet;
 var $elm$core$Array$getHelp = F3(
@@ -51728,7 +51715,7 @@ var $author$project$Timeline$sectionBox2html = F8(
 			(wrapText ? $elm$core$List$concatMap(
 				$elm$core$String$split('\n')) : $elm$core$Basics$identity)(labels));
 		var hideTimeBox = drawTime ? ((_Utils_eq(direction, $author$project$Timeline$Models$Horizontal) && (sizev < 25)) || (_Utils_eq(direction, $author$project$Timeline$Models$Vertical) && (sizeh < 25))) : true;
-		var hideTime = (_Utils_eq(direction, $author$project$Timeline$Models$Horizontal) && (sizeh < 55)) || (_Utils_eq(direction, $author$project$Timeline$Models$Vertical) && (sizev < 35));
+		var hideTime = (_Utils_eq(direction, $author$project$Timeline$Models$Horizontal) && (sizeh < 80)) || (_Utils_eq(direction, $author$project$Timeline$Models$Vertical) && (sizev < 35));
 		var dy = 0;
 		var dx = 0;
 		var color_ = $author$project$Timeline$Models$findColor(color);
@@ -51808,7 +51795,13 @@ var $author$project$Timeline$sectionBox2html = F8(
 										_List_fromArray(
 											[
 												$elm$html$Html$text(
-												A5($author$project$Moment$format, locale, zone, $author$project$Moment$Hour, $elm$core$Maybe$Nothing, start))
+												A5(
+													$author$project$Moment$format,
+													locale,
+													zone,
+													$author$project$Moment$Second,
+													$elm$core$Maybe$Just('HH:mm:ss'),
+													start))
 											])),
 										hideTime ? $elm$html$Html$text('') : A2(
 										$elm$html$Html$div,
@@ -51828,7 +51821,13 @@ var $author$project$Timeline$sectionBox2html = F8(
 										_List_fromArray(
 											[
 												$elm$html$Html$text(
-												A5($author$project$Moment$format, locale, zone, $author$project$Moment$Hour, $elm$core$Maybe$Nothing, end))
+												A5(
+													$author$project$Moment$format,
+													locale,
+													zone,
+													$author$project$Moment$Second,
+													$elm$core$Maybe$Just('HH:mm:ss'),
+													end))
 											]))
 									]))),
 							$elm$core$Maybe$Just(
@@ -52694,7 +52693,7 @@ var $author$project$Timeline$view = F3(
 		var width = rect.width - lateral;
 		var height = rect.height - top;
 		var grid = $author$project$Timeline$Axis$getGrid($author$project$Timeline$Models$duration.day / box.zoom);
-		var unit = grid.snap * 60000;
+		var unit = grid.snap * 5000;
 		var from = A2($author$project$Timeline$unscale, box.zoom, -box.start) + $elm$time$Time$posixToMillis(box.first);
 		var end = from + A2(
 			$author$project$Timeline$unscale,
@@ -53038,11 +53037,12 @@ var $author$project$Timeline$view = F3(
 						var _v2 = _v1.a.a;
 						var posix = _v2.a;
 						var pos = _v2.b;
-						var time = A4(
-							$enkidatron$elm_cldr$Cldr$Format$DateTime$format,
-							$enkidatron$elm_cldr$Cldr$Format$DateTime$TimeOnly($enkidatron$elm_cldr$Cldr$Format$Length$Short),
+						var time = A5(
+							$author$project$Moment$format,
 							box.locale,
 							box.zone,
+							$author$project$Moment$Second,
+							$elm$core$Maybe$Just('HH:mm:ss'),
 							posix);
 						var date = A4($author$project$Moment$formatI18n, box.locale, box.zone, 'yyyy-MM-dd ', posix);
 						var _v3 = box.direction;
