@@ -42283,6 +42283,7 @@ var $author$project$Moment$Day = {$: 'Day'};
 var $author$project$Moment$Hour = {$: 'Hour'};
 var $author$project$Moment$Minute = {$: 'Minute'};
 var $author$project$Moment$Month = {$: 'Month'};
+var $author$project$Moment$Second = {$: 'Second'};
 var $author$project$Moment$Week = {$: 'Week'};
 var $author$project$Moment$Year = {$: 'Year'};
 var $author$project$Timeline$Axis$lastDef = {
@@ -42306,6 +42307,12 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 		divs: _List_fromArray(
 			[
 				{
+				delta: 5,
+				hformat: $elm$core$Maybe$Just('ss'),
+				unit: $author$project$Moment$Second,
+				vformat: $elm$core$Maybe$Just('ss')
+			},
+				{
 				delta: 1,
 				hformat: $elm$core$Maybe$Just('HH:mm'),
 				unit: $author$project$Moment$Minute,
@@ -42318,8 +42325,27 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 				vformat: $elm$core$Maybe$Just('dd MMM')
 			}
 			]),
+		snap: 1 / 3600,
+		unit: 0.02
+	},
+		{
+		divs: _List_fromArray(
+			[
+				{
+				delta: 1,
+				hformat: $elm$core$Maybe$Just('mm'),
+				unit: $author$project$Moment$Minute,
+				vformat: $elm$core$Maybe$Just('mm')
+			},
+				{
+				delta: 1,
+				hformat: $elm$core$Maybe$Just('EEEE dd MMM'),
+				unit: $author$project$Moment$Day,
+				vformat: $elm$core$Maybe$Just('dd MMM')
+			}
+			]),
 		snap: 1 / 60,
-		unit: 0.05
+		unit: 0.08
 	},
 		{
 		divs: _List_fromArray(
@@ -42725,7 +42751,7 @@ var $author$project$Timeline$Update$sectionsWheel = F3(
 		if (altKey) {
 			var zoom = A2(
 				$elm$core$Basics$min,
-				40000,
+				150000,
 				A2(
 					$elm$core$Basics$max,
 					_Utils_eq(box.direction, $author$project$Timeline$Models$Horizontal) ? 2 : 5,
