@@ -42320,7 +42320,7 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 			}
 			]),
 		snap: 1 / 60,
-		unit: 0.5
+		unit: 0.05
 	},
 		{
 		divs: _List_fromArray(
@@ -42340,12 +42340,11 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 			}
 			]),
 		snap: 1 / 60,
-		unit: 0.1
+		unit: 0.2
 	},
 		{
 		divs: _List_fromArray(
 			[
-				{delta: 15, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Minute, vformat: $elm$core$Maybe$Nothing},
 				{delta: 1, hformat: $elm$core$Maybe$Nothing, unit: $author$project$Moment$Hour, vformat: $elm$core$Maybe$Nothing},
 				{
 				delta: 1,
@@ -42355,7 +42354,7 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 			}
 			]),
 		snap: 1 / 60,
-		unit: 1 / 6
+		unit: 1.0
 	},
 		{
 		divs: _List_fromArray(
