@@ -42320,7 +42320,7 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 			}
 			]),
 		snap: 1 / 60,
-		unit: 2.0
+		unit: 20.0
 	},
 		{
 		divs: _List_fromArray(
@@ -42339,8 +42339,8 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 				vformat: $elm$core$Maybe$Just('x')
 			}
 			]),
-		snap: 1 / 12,
-		unit: 1 / 18
+		snap: 1 / 60,
+		unit: 10.0
 	},
 		{
 		divs: _List_fromArray(
@@ -42354,8 +42354,8 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 				vformat: $elm$core$Maybe$Just('x')
 			}
 			]),
-		snap: 1 / 12,
-		unit: 1 / 6
+		snap: 1 / 60,
+		unit: 5.0
 	},
 		{
 		divs: _List_fromArray(
