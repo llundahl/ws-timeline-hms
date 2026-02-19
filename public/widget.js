@@ -42319,8 +42319,8 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 				vformat: $elm$core$Maybe$Just('HH:mm')
 			}
 			]),
-		snap: 1 / 3600,
-		unit: 0.02
+		snap: 1 / 60,
+		unit: 2.0
 	},
 		{
 		divs: _List_fromArray(
@@ -42855,7 +42855,7 @@ var $author$project$Timeline$Update$sectionsWheel = F3(
 		if (altKey) {
 			var zoom = A2(
 				$elm$core$Basics$min,
-				6000,
+				1000000,
 				A2(
 					$elm$core$Basics$max,
 					_Utils_eq(box.direction, $author$project$Timeline$Models$Horizontal) ? 2 : 5,
