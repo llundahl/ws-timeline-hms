@@ -49,6 +49,13 @@ type alias AxisDef =
 
 axisDefs : List AxisDef
 axisDefs =
+    [ { unit = 1 / 3600 -- This represents 1 second (1/3600th of an hour)
+      , snap = 1 / 3600
+      , divs =
+            [ { delta = 1, unit = Second, hformat = Just "ss", vformat = Just "ss" }
+            , { delta = 1, unit = Minute, hformat = Just "HH:mm", vformat = Just "HH:mm" }
+            ]
+      }
     [ -- unit  = fraction of 1 hour
       { unit = 1 / 18
       , snap = 1 / 12
