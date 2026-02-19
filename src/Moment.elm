@@ -291,7 +291,7 @@ Minute ->
             TE.partsToPosix zone
                 { parts
                     | minute = parts.minute - modBy delta parts.minute
-                    , second = 0
+                    , second = parts.second
                     , millisecond = 0
                 }
 
