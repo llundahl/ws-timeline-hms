@@ -15,8 +15,7 @@ import Timeline.Utils exposing (..)
 
 getUnit : Float -> Moment.Duration
 getUnit zoom =
-    (.snap <| Axis.getGrid (duration.day / zoom)) * 3600000 |> round |> Moment.toDuration
-
+60000 |> Moment.toDuration -- 60,000ms = 1 minute
 
 zoneOffset : Time.Zone -> Time.Posix -> Int
 zoneOffset zone val =
