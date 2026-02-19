@@ -602,7 +602,7 @@ view attrs box rect =
             Axis.getGrid (duration.day / box.zoom)
 
         unit =
-            grid.snap * 3600000 |> round
+            grid.snap * 60000 -- Total milliseconds for 1-minute snapping
 
         mbcursor =
             (case box.interaction of
