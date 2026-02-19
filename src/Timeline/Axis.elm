@@ -49,7 +49,7 @@ type alias AxisDef =
 
 axisDefs : List AxisDef
 axisDefs =
-    [ { unit = 1 / 3600 -- This represents 1 second (1/3600th of an hour)
+    [ { unit = 0.02 -- Trigger this grid when zoomed in (fraction of an hour)
       , snap = 1 / 3600
       , divs =
             [ { delta = 1, unit = Second, hformat = Just "ss", vformat = Just "ss" }
