@@ -4251,7 +4251,7 @@ function _Browser_getViewport()
 		me: {
 			mk: _Browser_window.pageXOffset,
 			i9: _Browser_window.pageYOffset,
-			at: _Browser_doc.documentElement.clientWidth,
+			au: _Browser_doc.documentElement.clientWidth,
 			ay: _Browser_doc.documentElement.clientHeight
 		}
 	};
@@ -4262,7 +4262,7 @@ function _Browser_getScene()
 	var body = _Browser_doc.body;
 	var elem = _Browser_doc.documentElement;
 	return {
-		at: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
+		au: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
 		ay: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
 	};
 }
@@ -4287,13 +4287,13 @@ function _Browser_getViewportOf(id)
 	{
 		return {
 			iC: {
-				at: node.scrollWidth,
+				au: node.scrollWidth,
 				ay: node.scrollHeight
 			},
 			me: {
 				mk: node.scrollLeft,
 				i9: node.scrollTop,
-				at: node.clientWidth,
+				au: node.clientWidth,
 				ay: node.clientHeight
 			}
 		};
@@ -4328,13 +4328,13 @@ function _Browser_getElement(id)
 			me: {
 				mk: x,
 				i9: y,
-				at: _Browser_doc.documentElement.clientWidth,
+				au: _Browser_doc.documentElement.clientWidth,
 				ay: _Browser_doc.documentElement.clientHeight
 			},
 			aw: {
 				mk: x + rect.left,
 				i9: y + rect.top,
-				at: rect.width,
+				au: rect.width,
 				ay: rect.height
 			}
 		};
@@ -4535,14 +4535,14 @@ function _Http_track(router, xhr, tracker)
 		if (xhr.c) { return; }
 		_Scheduler_rawSpawn(A2($elm$core$Platform$sendToSelf, router, _Utils_Tuple2(tracker, $elm$http$Http$Sending({
 			lz: event.loaded,
-			bc: event.total
+			bd: event.total
 		}))));
 	});
 	xhr.addEventListener('progress', function(event) {
 		if (xhr.c) { return; }
 		_Scheduler_rawSpawn(A2($elm$core$Platform$sendToSelf, router, _Utils_Tuple2(tracker, $elm$http$Http$Receiving({
 			lm: event.loaded,
-			bc: event.lengthComputable ? $elm$core$Maybe$Just(event.total) : $elm$core$Maybe$Nothing
+			bd: event.lengthComputable ? $elm$core$Maybe$Just(event.total) : $elm$core$Maybe$Nothing
 		}))));
 	});
 }
@@ -10920,11 +10920,11 @@ var $enkidatron$elm_cldr$Internal$Options$hasTimeFields = function (opts) {
 				!_Utils_eq(opts.eG, $elm$core$Maybe$Nothing),
 				!_Utils_eq(opts.cX, $elm$core$Maybe$Nothing),
 				!_Utils_eq(opts.g4, $elm$core$Maybe$Nothing),
-				!_Utils_eq(opts.au, $elm$core$Maybe$Nothing)
+				!_Utils_eq(opts.aj, $elm$core$Maybe$Nothing)
 			]));
 };
 var $enkidatron$elm_cldr$Internal$Options$timeSubset = function (opts) {
-	return {gN: opts.gN, g4: opts.g4, fA: opts.fA, hg: opts.hg, eG: opts.eG, ie: opts.ie, cX: opts.cX, au: opts.au};
+	return {gN: opts.gN, g4: opts.g4, fA: opts.fA, hg: opts.hg, eG: opts.eG, ie: opts.ie, cX: opts.cX, aj: opts.aj};
 };
 var $enkidatron$elm_cldr$Internal$Options$shrinkOptions = function (opts) {
 	var _v0 = _Utils_Tuple2(
@@ -11372,7 +11372,7 @@ var $enkidatron$elm_cldr$Internal$Parse$buildKeyOptions = function (era) {
 												cX: second,
 												i5: weekday,
 												ja: year,
-												au: zone
+												aj: zone
 											};
 										};
 									};
@@ -11716,7 +11716,7 @@ var $joneshf$elm_tagged$Tagged$map = F2(
 var $elm$core$String$toLower = _String_toLower;
 var $elm$regex$Regex$Match = F4(
 	function (match, index, number, submatches) {
-		return {a4: index, hT: match, k9: number, lO: submatches};
+		return {a5: index, hT: match, k9: number, lO: submatches};
 	});
 var $elm$regex$Regex$fromStringWith = _Regex_fromStringWith;
 var $elm$regex$Regex$fromString = function (string) {
@@ -12125,7 +12125,7 @@ var $annaghi$dnd_list$DnDList$ghostStyles = F2(
 								'transform',
 								A2(
 									$annaghi$dnd_list$Internal$Common$Utils$translate,
-									$elm$core$Basics$round(((state.a1.mk - state.bs.mk) + element.mk) - viewport.mk),
+									$elm$core$Basics$round(((state.a2.mk - state.bs.mk) + element.mk) - viewport.mk),
 									$elm$core$Basics$round(element.i9 - viewport.i9)));
 						case 2:
 							return A2(
@@ -12134,15 +12134,15 @@ var $annaghi$dnd_list$DnDList$ghostStyles = F2(
 								A2(
 									$annaghi$dnd_list$Internal$Common$Utils$translate,
 									$elm$core$Basics$round(element.mk - viewport.mk),
-									$elm$core$Basics$round(((state.a1.i9 - state.bs.i9) + element.i9) - viewport.i9)));
+									$elm$core$Basics$round(((state.a2.i9 - state.bs.i9) + element.i9) - viewport.i9)));
 						default:
 							return A2(
 								$elm$html$Html$Attributes$style,
 								'transform',
 								A2(
 									$annaghi$dnd_list$Internal$Common$Utils$translate,
-									$elm$core$Basics$round(((state.a1.mk - state.bs.mk) + element.mk) - viewport.mk),
-									$elm$core$Basics$round(((state.a1.i9 - state.bs.i9) + element.i9) - viewport.i9)));
+									$elm$core$Basics$round(((state.a2.mk - state.bs.mk) + element.mk) - viewport.mk),
+									$elm$core$Basics$round(((state.a2.i9 - state.bs.i9) + element.i9) - viewport.i9)));
 					}
 				}();
 				var baseStyles = _List_fromArray(
@@ -12159,7 +12159,7 @@ var $annaghi$dnd_list$DnDList$ghostStyles = F2(
 						$elm$html$Html$Attributes$style,
 						'width',
 						$annaghi$dnd_list$Internal$Common$Utils$px(
-							$elm$core$Basics$round(element.at))),
+							$elm$core$Basics$round(element.au))),
 						A2($elm$html$Html$Attributes$style, 'pointer-events', 'none')
 					]);
 				return A2($elm$core$List$cons, transform, baseStyles);
@@ -12177,7 +12177,7 @@ var $annaghi$dnd_list$DnDList$info = function (_v0) {
 				$elm$core$Maybe$map2,
 				F2(
 					function (dragElement, dropElement) {
-						return {a1: state.a1, bA: dragElement, cA: state.cA, gQ: state.gQ, bZ: dropElement, b_: state.b_, ki: state.ki, bs: state.bs};
+						return {a2: state.a2, bA: dragElement, cA: state.cA, gQ: state.gQ, bZ: dropElement, b_: state.b_, ki: state.ki, bs: state.bs};
 					}),
 				state.bA,
 				state.bZ);
@@ -12770,7 +12770,7 @@ var $annaghi$dnd_list$DnDList$update = F4(
 				var xy = msg.c;
 				return _Utils_Tuple2(
 					$elm$core$Maybe$Just(
-						{a1: xy, aN: 0, bA: $elm$core$Maybe$Nothing, cA: dragElementId, gQ: dragIndex, bZ: $elm$core$Maybe$Nothing, b_: dragElementId, ki: dragIndex, bs: xy}),
+						{a2: xy, aN: 0, bA: $elm$core$Maybe$Nothing, cA: dragElementId, gQ: dragIndex, bZ: $elm$core$Maybe$Nothing, b_: dragElementId, ki: dragIndex, bs: xy}),
 					list);
 			case 1:
 				var xy = msg.a;
@@ -12780,7 +12780,7 @@ var $annaghi$dnd_list$DnDList$update = F4(
 						function (state) {
 							return _Utils_update(
 								state,
-								{a1: xy, aN: state.aN + 1});
+								{a2: xy, aN: state.aN + 1});
 						},
 						model),
 					list);
@@ -12923,8 +12923,8 @@ var $author$project$Timeline$default = F2(
 			bU: $elm$time$Time$millisToPosix(0),
 			o: dir,
 			cy: true,
-			bi: $author$project$Timeline$system(dir).h_,
-			aj: posix,
+			bj: $author$project$Timeline$system(dir).h_,
+			ak: posix,
 			ax: $elm$core$Dict$empty,
 			g9: 0,
 			aH: 250,
@@ -12934,18 +12934,18 @@ var $author$project$Timeline$default = F2(
 					-1)),
 			z: 38,
 			fF: 0,
-			bn: $enkidatron$elm_cldr$Cldr$Locale$en,
+			a_: $enkidatron$elm_cldr$Cldr$Locale$en,
 			dr: $elm$core$Dict$empty,
 			ds: $author$project$Timeline$Models$emptySelection,
 			ah: 0,
-			as: _List_Nil,
+			at: _List_Nil,
 			eV: $elm$core$Dict$empty,
 			br: $author$project$Timeline$Models$emptySelection,
 			eW: _List_Nil,
 			bN: false,
 			m: 0,
 			dJ: false,
-			au: zone,
+			aj: zone,
 			C: 50,
 			c9: 0
 		};
@@ -13680,13 +13680,13 @@ var $author$project$Timeline$Models$meshesForGroups = F5(
 							A2($elm$core$Dict$remove, gid, sres));
 					} else {
 						var group = _v1.a;
-						return $elm$core$List$isEmpty(group.as) ? _Utils_Tuple2(
+						return $elm$core$List$isEmpty(group.at) ? _Utils_Tuple2(
 							A2($elm$core$Dict$remove, gid, mres),
 							A2($elm$core$Dict$remove, gid, sres)) : A3(
 							$elm$core$Tuple$mapBoth,
 							A2(
 								$elm$core$Basics$composeR,
-								A2($author$project$Timeline$Models$toMeshes, group.a5, firstDate),
+								A2($author$project$Timeline$Models$toMeshes, group.a6, firstDate),
 								function (m) {
 									return A3(
 										$elm$core$Dict$insert,
@@ -13696,7 +13696,7 @@ var $author$project$Timeline$Models$meshesForGroups = F5(
 								}),
 							A2(
 								$elm$core$Basics$composeR,
-								A2($author$project$Timeline$Models$toMeshes, group.a5, firstDate),
+								A2($author$project$Timeline$Models$toMeshes, group.a6, firstDate),
 								function (m) {
 									return A3(
 										$elm$core$Dict$insert,
@@ -13734,7 +13734,7 @@ var $author$project$Timeline$Models$meshesForGroups = F5(
 												bq: A3($author$project$Timeline$Models$isSelected, gid, sbox.q.b4, sel)
 											};
 										},
-										group.as))));
+										group.at))));
 					}
 				}),
 			oldMeshes,
@@ -13854,7 +13854,7 @@ var $author$project$Timeline$toTimelineBox = F2(
 							$elm$core$Basics$composeR,
 							$elm$core$Tuple$first,
 							function (g) {
-								return g.bc + g.bp;
+								return g.bd + g.bp;
 							}),
 						$elm_community$list_extra$List$Extra$last(res)));
 				var _v3 = A2(
@@ -13862,7 +13862,7 @@ var $author$project$Timeline$toTimelineBox = F2(
 					function ($) {
 						return $.b5;
 					},
-					group.as);
+					group.at);
 				var globalSections = _v3.a;
 				var normalSections = _v3.b;
 				var layers = $author$project$Timeline$toLayers(normalSections);
@@ -13874,10 +13874,10 @@ var $author$project$Timeline$toTimelineBox = F2(
 							_Utils_Tuple2(
 							{
 								b4: group.b4,
-								a5: group.a5,
-								bk: group.bk,
+								a6: group.a6,
+								bl: group.bl,
 								bp: position,
-								as: _Utils_ap(
+								at: _Utils_ap(
 									A2(
 										$elm$core$List$map,
 										function (s) {
@@ -13892,7 +13892,7 @@ var $author$project$Timeline$toTimelineBox = F2(
 											return {dj: group.b4, aa: level, q: s};
 										},
 										layers)),
-								bc: size
+								bd: size
 							},
 							_Utils_ap(
 								A2(
@@ -13929,7 +13929,7 @@ var $author$project$Timeline$toTimelineBox = F2(
 			A3($elm$core$List$foldl, $author$project$Timeline$generateSectionBoxes, _List_Nil, grouped));
 		var firstDate = A2(
 			$elm$core$Maybe$withDefault,
-			base.aj,
+			base.ak,
 			A2(
 				$elm$core$Maybe$map,
 				function (s) {
@@ -13944,7 +13944,7 @@ var $author$project$Timeline$toTimelineBox = F2(
 				}),
 			F4(
 				function (gid, a, b, res) {
-					return (_Utils_eq(a, b) && _Utils_eq(firstDate, base.aj)) ? res : A2($elm$core$List$cons, gid, res);
+					return (_Utils_eq(a, b) && _Utils_eq(firstDate, base.ak)) ? res : A2($elm$core$List$cons, gid, res);
 				}),
 			F3(
 				function (gid, _v2, res) {
@@ -13953,7 +13953,7 @@ var $author$project$Timeline$toTimelineBox = F2(
 			base.ax,
 			groupsDict,
 			_List_Nil);
-		var deltaStart = (!$elm$time$Time$posixToMillis(base.aj)) ? 0 : ((base.C / $author$project$Timeline$Models$duration.W) * ($elm$time$Time$posixToMillis(firstDate) - $elm$time$Time$posixToMillis(base.aj)));
+		var deltaStart = (!$elm$time$Time$posixToMillis(base.ak)) ? 0 : ((base.C / $author$project$Timeline$Models$duration.W) * ($elm$time$Time$posixToMillis(firstDate) - $elm$time$Time$posixToMillis(base.ak)));
 		var _v0 = A5(
 			$author$project$Timeline$Models$meshesForGroups,
 			firstDate,
@@ -13966,8 +13966,8 @@ var $author$project$Timeline$toTimelineBox = F2(
 		return _Utils_update(
 			base,
 			{
-				bi: base.bi,
-				aj: firstDate,
+				bj: base.bj,
+				ak: firstDate,
 				ax: groupsDict,
 				g9: $elm$core$List$length(groups),
 				z: base.z,
@@ -13975,17 +13975,17 @@ var $author$project$Timeline$toTimelineBox = F2(
 					A2(
 						$elm$core$List$map,
 						function ($) {
-							return $.bc;
+							return $.bd;
 						},
 						groupboxes)),
 				dr: meshes,
 				ds: base.ds,
-				as: sections,
+				at: sections,
 				eV: selected,
 				eW: groups,
 				bN: base.bN,
 				m: base.m + deltaStart,
-				au: base.au,
+				aj: base.aj,
 				C: base.C,
 				c9: base.c9
 			});
@@ -17790,7 +17790,7 @@ var $author$project$Timeline$setLanguage = F2(
 		return _Utils_update(
 			tl,
 			{
-				bn: A2(
+				a_: A2(
 					$elm$core$Maybe$withDefault,
 					$enkidatron$elm_cldr$Cldr$Locale$en,
 					A2($enkidatron$elm_cldr$Cldr$Locale$fromString, $enkidatron$elm_cldr$Cldr$Locale$basicLocales, str))
@@ -17802,7 +17802,7 @@ var $author$project$Widget$WindowResize = function (a) {
 var $author$project$Widget$sizeToMsg = F2(
 	function (w, h) {
 		return $author$project$Widget$WindowResize(
-			{ay: h, at: w});
+			{ay: h, au: w});
 	});
 var $author$project$Widget$startDateFromFlags = function (flags) {
 	var result = A2(
@@ -17827,7 +17827,7 @@ var $justinmimbs$timezone_data$TimeZone$Specification$Rules = function (a) {
 var $justinmimbs$timezone_data$TimeZone$Specification$WallClock = 2;
 var $justinmimbs$timezone_data$TimeZone$Specification$Zone = F2(
 	function (history, current) {
-		return {ap: current, aY: history};
+		return {aq: current, aY: history};
 	});
 var $justinmimbs$timezone_data$TimeZone$Specification$ZoneState = F2(
 	function (standardOffset, zoneRules) {
@@ -18174,7 +18174,7 @@ var $justinmimbs$timezone_data$TimeZone$Specification$zoneToRanges = F3(
 		return $elm$core$List$reverse(
 			A2(
 				$elm$core$List$cons,
-				_Utils_Tuple3(currentStart, zone.ap, zoneUntil),
+				_Utils_Tuple3(currentStart, zone.aq, zoneUntil),
 				historyRanges));
 	});
 var $justinmimbs$timezone_data$TimeZone$Specification$toOffsets = F3(
@@ -18186,7 +18186,7 @@ var $justinmimbs$timezone_data$TimeZone$Specification$toOffsets = F3(
 				var earliest = _v6.a;
 				return earliest;
 			} else {
-				return zone.ap;
+				return zone.aq;
 			}
 		}();
 		var initialOffset = {
@@ -36106,7 +36106,7 @@ var $author$project$Widget$init = function (flags) {
 	return _Utils_Tuple2(
 		{
 			cq: $grotsev$elm_debouncer$Bounce$init,
-			ac: {ay: 500, at: 1000},
+			ac: {ay: 500, au: 1000},
 			aV: 0,
 			eb: _List_Nil,
 			bz: $author$project$Widget$currencyFromFlags(flags),
@@ -36116,7 +36116,7 @@ var $author$project$Widget$init = function (flags) {
 			aF: _List_Nil,
 			eh: 0,
 			Y: $elm$core$Dict$empty,
-			ak: '',
+			al: '',
 			dj: '',
 			dk: _List_Nil,
 			Z: $elm$core$Dict$empty,
@@ -36125,7 +36125,7 @@ var $author$project$Widget$init = function (flags) {
 			cK: lang,
 			e: $author$project$Widget$Options(
 				$elm$time$Time$millisToPosix(0))(0)(0)(38)(0)(false)(du)(false)(false)($elm$core$Maybe$Nothing)($author$project$Widget$groupsSizeDefault)(false),
-			ar: $elm$core$Dict$empty,
+			as: $elm$core$Dict$empty,
 			bK: $elm$core$Dict$empty,
 			cg: false,
 			bL: 0,
@@ -36176,7 +36176,7 @@ var $author$project$Widget$init = function (flags) {
 					function (size) {
 						return A2(
 							$author$project$Widget$sizeToMsg,
-							$elm$core$Basics$round(size.me.at),
+							$elm$core$Basics$round(size.me.au),
 							$elm$core$Basics$round(size.me.ay));
 					},
 					$elm$browser$Browser$Dom$getViewport),
@@ -36511,7 +36511,7 @@ var $author$project$Timeline$subscriptions = function (box) {
 	return $elm$core$Platform$Sub$batch(
 		_List_fromArray(
 			[
-				box.d1 ? $author$project$Timeline$system(box.o).lP(box.bi) : $elm$core$Platform$Sub$none,
+				box.d1 ? $author$project$Timeline$system(box.o).lP(box.bj) : $elm$core$Platform$Sub$none,
 				function () {
 				var _v0 = box.I;
 				if (_v0.$ === 7) {
@@ -37560,7 +37560,7 @@ var $author$project$Widget$addSubtotals = F2(
 						function (rec) {
 							return A2($elm_community$list_extra$List$Extra$getAt, idx, rec.dE);
 						},
-						A2($elm$core$Dict$get, id, model.ar)));
+						A2($elm$core$Dict$get, id, model.as)));
 			});
 		var locale = $author$project$Field$localeForLanguage(model.cK);
 		return A2(
@@ -37573,9 +37573,9 @@ var $author$project$Widget$addSubtotals = F2(
 							g,
 							{
 								b4: '_subtotal_count_' + g.b4,
-								a5: true,
-								bk: function () {
-									var _v0 = g.bk;
+								a6: true,
+								bl: function () {
+									var _v0 = g.bl;
 									if (_v0.b) {
 										var x = _v0.a;
 										return _List_fromArray(
@@ -37590,11 +37590,11 @@ var $author$project$Widget$addSubtotals = F2(
 											]);
 									}
 								}(),
-								as: A3(
+								at: A3(
 									$author$project$Widget$computeTotal,
 									$elm$core$Basics$always(1),
 									$elm$core$String$fromFloat,
-									g.as)
+									g.at)
 							})
 						]) : _List_Nil,
 					_Utils_ap(
@@ -37607,9 +37607,9 @@ var $author$project$Widget$addSubtotals = F2(
 										g,
 										{
 											b4: '_subtotal_' + (field + ('_' + g.b4)),
-											a5: true,
-											bk: function () {
-												var _v1 = g.bk;
+											a6: true,
+											bl: function () {
+												var _v1 = g.bl;
 												if (_v1.b) {
 													var x = _v1.a;
 													return _List_fromArray(
@@ -37619,11 +37619,11 @@ var $author$project$Widget$addSubtotals = F2(
 														[field]);
 												}
 											}(),
-											as: A3(
+											at: A3(
 												$author$project$Widget$computeTotal,
 												toValue(idx),
 												toString,
-												g.as)
+												g.at)
 										});
 								}),
 							model.aT),
@@ -37653,7 +37653,7 @@ var $author$project$Widget$addTotals = function (model) {
 					function (rec) {
 						return A2($elm_community$list_extra$List$Extra$getAt, idx, rec.dE);
 					},
-					A2($elm$core$Dict$get, id, model.ar)));
+					A2($elm$core$Dict$get, id, model.as)));
 		});
 	var sections = A2(
 		$elm$core$List$map,
@@ -37665,19 +37665,19 @@ var $author$project$Widget$addTotals = function (model) {
 				m: $elm$time$Time$millisToPosix(rec.fn)
 			};
 		},
-		$elm$core$Dict$values(model.ar));
+		$elm$core$Dict$values(model.as));
 	var locale = $author$project$Field$localeForLanguage(model.cK);
 	return _Utils_ap(
 		model.e.aD ? _List_fromArray(
 			[
 				{
 				b4: '_total_count',
-				a5: true,
-				bk: _List_fromArray(
+				a6: true,
+				bl: _List_fromArray(
 					[
 						$author$project$Widget$Translations$count(model.w)
 					]),
-				as: A3(
+				at: A3(
 					$author$project$Widget$computeTotal,
 					$elm$core$Basics$always(1),
 					$elm$core$String$fromFloat,
@@ -37691,10 +37691,10 @@ var $author$project$Widget$addTotals = function (model) {
 					var toString = A4($author$project$Widget$floatToString, locale, model.bz, field, model.Y);
 					return {
 						b4: '_total_' + field,
-						a5: true,
-						bk: _List_fromArray(
+						a6: true,
+						bl: _List_fromArray(
 							[field]),
-						as: A3(
+						at: A3(
 							$author$project$Widget$computeTotal,
 							toValue(idx),
 							toString,
@@ -37731,7 +37731,7 @@ var $author$project$Timeline$changeDirection = F2(
 			tl,
 			{
 				o: dir,
-				bi: $author$project$Timeline$system(dir).h_
+				bj: $author$project$Timeline$system(dir).h_
 			});
 	});
 var $author$project$Timeline$changeGroupsSize = F2(
@@ -37744,7 +37744,7 @@ var $author$project$Timeline$changeGroupsSize = F2(
 	});
 var $author$project$Timeline$changeStartAndZoom = F3(
 	function (posix, zoom, tl) {
-		var start = -((($elm$time$Time$posixToMillis(posix) - $elm$time$Time$posixToMillis(tl.aj)) * zoom) / $author$project$Timeline$Models$duration.W);
+		var start = -((($elm$time$Time$posixToMillis(posix) - $elm$time$Time$posixToMillis(tl.ak)) * zoom) / $author$project$Timeline$Models$duration.W);
 		return _Utils_update(
 			tl,
 			{m: start, C: zoom});
@@ -38253,7 +38253,7 @@ var $author$project$Widget$modifyRecordsDelta = function (args) {
 				[
 					_Utils_Tuple2(
 					'ids',
-					A2($elm$json$Json$Encode$list, $elm$json$Json$Encode$int, args.al)),
+					A2($elm$json$Json$Encode$list, $elm$json$Json$Encode$int, args.am)),
 					_Utils_Tuple2(
 					'changeDebut',
 					$elm$json$Json$Encode$int(args.cr)),
@@ -38269,7 +38269,7 @@ var $author$project$Widget$modifyRecordsDuree = function (args) {
 				[
 					_Utils_Tuple2(
 					'ids',
-					A2($elm$json$Json$Encode$list, $elm$json$Json$Encode$int, args.al)),
+					A2($elm$json$Json$Encode$list, $elm$json$Json$Encode$int, args.am)),
 					_Utils_Tuple2(
 					'setDuree',
 					$elm$json$Json$Encode$float(args.iE))
@@ -38282,7 +38282,7 @@ var $author$project$Widget$modifyRecordsFin = function (args) {
 				[
 					_Utils_Tuple2(
 					'ids',
-					A2($elm$json$Json$Encode$list, $elm$json$Json$Encode$int, args.al)),
+					A2($elm$json$Json$Encode$list, $elm$json$Json$Encode$int, args.am)),
 					_Utils_Tuple2(
 					'setFin',
 					$elm$json$Json$Encode$string(args.iF))
@@ -38642,8 +38642,8 @@ var $author$project$Widget$makeFieldUpdate = F3(
 							function (k, _v1) {
 								return A2($elm$core$Set$member, k, selSet);
 							}),
-						model.ar));
-				var offset = A2($justinmimbs$time_extra$Time$Extra$toOffset, model.d.au, date) * 60000;
+						model.as));
+				var offset = A2($justinmimbs$time_extra$Time$Extra$toOffset, model.d.aj, date) * 60000;
 				var base = A2(
 					$elm$core$Maybe$withDefault,
 					date,
@@ -38663,7 +38663,7 @@ var $author$project$Widget$makeFieldUpdate = F3(
 					{
 						fk: 0,
 						cr: (change / 1000) | 0,
-						al: A2(
+						am: A2(
 							$elm$core$List$filterMap,
 							$elm$core$String$toInt,
 							$elm$core$Set$toList(selSet))
@@ -38679,7 +38679,7 @@ var $author$project$Widget$makeFieldUpdate = F3(
 					var selSet = $author$project$Timeline$Models$selectionToSet(model.d.br);
 					return $author$project$Widget$modifyRecordsFin(
 						{
-							al: A2(
+							am: A2(
 								$elm$core$List$filterMap,
 								$elm$core$String$toInt,
 								$elm$core$Set$toList(selSet)),
@@ -38696,7 +38696,7 @@ var $author$project$Widget$makeFieldUpdate = F3(
 						var selSet = $author$project$Timeline$Models$selectionToSet(model.d.br);
 						return $author$project$Widget$modifyRecordsDuree(
 							{
-								al: A2(
+								am: A2(
 									$elm$core$List$filterMap,
 									$elm$core$String$toInt,
 									$elm$core$Set$toList(selSet)),
@@ -38911,7 +38911,7 @@ var $author$project$Selectize$Internal$closed = F3(
 			}
 		};
 		var labeledEntries = A2($elm$core$List$map, addLabel, entries);
-		return {a2: labeledEntries, eg: _List_Nil, b4: id, dp: 0, bF: $elm$core$Maybe$Nothing, cU: false, eP: false, cd: '', f0: 0, aJ: $elm$core$Maybe$Nothing};
+		return {a3: labeledEntries, eg: _List_Nil, b4: id, dp: 0, bF: $elm$core$Maybe$Nothing, cU: false, eP: false, cd: '', f0: 0, aJ: $elm$core$Maybe$Nothing};
 	});
 var $author$project$Selectize$closed = F3(
 	function (id, toLabel, entries) {
@@ -38928,7 +38928,7 @@ var $author$project$Widget$debutField = function (trans) {
 	return {
 		b4: $author$project$Widget$debutFieldId,
 		ev: false,
-		bk: $author$project$Widget$Translations$startDate(trans),
+		bl: $author$project$Widget$Translations$startDate(trans),
 		cT: $author$project$Field$DateTime,
 		i0: $author$project$Field$ListInt(_List_Nil)
 	};
@@ -38950,7 +38950,7 @@ var $author$project$Widget$dureeField = function (trans) {
 	return {
 		b4: $author$project$Widget$dureeFieldId,
 		ev: false,
-		bk: $author$project$Widget$Translations$duration(trans),
+		bl: $author$project$Widget$Translations$duration(trans),
 		cT: $author$project$Field$standardFloat,
 		i0: $author$project$Field$ListFloat(_List_Nil)
 	};
@@ -38971,7 +38971,7 @@ var $author$project$Widget$finField = function (trans) {
 	return {
 		b4: $author$project$Widget$finFieldId,
 		ev: false,
-		bk: $author$project$Widget$Translations$endDate(trans),
+		bl: $author$project$Widget$Translations$endDate(trans),
 		cT: $author$project$Field$DateTime,
 		i0: $author$project$Field$ListInt(_List_Nil)
 	};
@@ -39020,7 +39020,7 @@ var $elm_community$list_extra$List$Extra$gatherEqualsBy = F2(
 	});
 var $author$project$Widget$ReceiveData = F9(
 	function (records, maybeSelection, fields, content, editable, totals, group, subgroup, colorScheme) {
-		return {aV: colorScheme, gJ: content, gT: editable, Y: fields, g8: group, hV: maybeSelection, ar: records, iM: subgroup, dE: totals};
+		return {aV: colorScheme, gJ: content, gT: editable, Y: fields, g8: group, hV: maybeSelection, as: records, iM: subgroup, dE: totals};
 	});
 var $author$project$Field$ListString = function (a) {
 	return {$: 2, a: a};
@@ -39078,7 +39078,7 @@ var $author$project$Field$Text = function (a) {
 var $author$project$Field$Unknow = {$: 12};
 var $author$project$Field$ChoiceRecord = F8(
 	function (id, label, textColor, backgroundColor, bold, italic, underline, crossedOut) {
-		return {ff: backgroundColor, fg: bold, fl: crossedOut, b4: id, fC: italic, bk: label, f8: textColor, ga: underline};
+		return {ff: backgroundColor, fg: bold, fl: crossedOut, b4: id, fC: italic, bl: label, f8: textColor, ga: underline};
 	});
 var $NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$hardcoded = A2($elm$core$Basics$composeR, $elm$json$Json$Decode$succeed, $NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$custom);
 var $author$project$Field$choiceDecoder = F2(
@@ -39133,7 +39133,7 @@ var $author$project$Field$choicesDecoder = F2(
 				$elm$core$Basics$composeR,
 				$elm$core$List$map(
 					function (c) {
-						return _Utils_Tuple2(c.bk, c);
+						return _Utils_Tuple2(c.bl, c);
 					}),
 				$elm$core$Dict$fromList),
 			$elm_community$json_extra$Json$Decode$Extra$combine(
@@ -39384,7 +39384,7 @@ var $author$project$Field$fieldTypeDecoder = function (defaultChoice) {
 													defaultChoice,
 													{
 														b4: $author$project$Field$VString(ch),
-														bk: ch
+														bl: ch
 													}),
 												A2($elm$core$Dict$get, ch, opts));
 										},
@@ -39418,7 +39418,7 @@ var $author$project$Field$fieldTypeDecoder = function (defaultChoice) {
 													defaultChoice,
 													{
 														b4: $author$project$Field$VString(ch),
-														bk: ch
+														bl: ch
 													}),
 												A2($elm$core$Dict$get, ch, opts));
 										},
@@ -39457,7 +39457,7 @@ var $author$project$Field$valuesDecoder = F2(
 						$elm$json$Json$Decode$map2,
 						F2(
 							function (value, label) {
-								return {bk: label, mc: value};
+								return {bl: label, mc: value};
 							}),
 						A2($elm$json$Json$Decode$field, 'value', decdr),
 						A2($elm$json$Json$Decode$field, 'label', $elm$json$Json$Decode$string)))));
@@ -39505,7 +39505,7 @@ var $author$project$Field$decoder = function (defaultChoice) {
 					return {
 						b4: f.b4,
 						ev: f.ev && (!$elm$core$String$isEmpty(f.g3)),
-						bk: f.bk,
+						bl: f.bl,
 						cT: f.cT,
 						i0: values
 					};
@@ -39524,7 +39524,7 @@ var $author$project$Field$decoder = function (defaultChoice) {
 			$elm$json$Json$Decode$map5,
 			F5(
 				function (id, label, ofType, isFormula, formula) {
-					return {g3: formula, b4: id, ev: isFormula, bk: label, cT: ofType};
+					return {g3: formula, b4: id, ev: isFormula, bl: label, cT: ofType};
 				}),
 			A2($elm$json$Json$Decode$field, 'colId', $elm$json$Json$Decode$string),
 			A2($elm$json$Json$Decode$field, 'label', $elm$json$Json$Decode$string),
@@ -39538,7 +39538,7 @@ var $author$project$Widget$defaultChoice = {
 	fl: false,
 	b4: $author$project$Field$VString('def'),
 	fC: false,
-	bk: 'def',
+	bl: 'def',
 	f8: '',
 	ga: false
 };
@@ -39914,7 +39914,7 @@ var $author$project$Widget$sectionIdsToSelection = F2(
 												sec.b4,
 												$elm$core$String$fromInt(id)) ? $elm$core$Maybe$Just(sec.b4) : $elm$core$Maybe$Nothing;
 										},
-										group.as));
+										group.at));
 							},
 							groups));
 				}),
@@ -40244,7 +40244,7 @@ var $author$project$Timeline$Update$updateMeshes = function (box) {
 	var groups = A2($author$project$Timeline$Models$groupDiffSelection, selection, box.ds);
 	var _v0 = A5(
 		$author$project$Timeline$Models$meshesForGroups,
-		box.aj,
+		box.ak,
 		box.ax,
 		$elm$core$Set$toList(groups),
 		selection,
@@ -40324,7 +40324,7 @@ var $author$project$Timeline$zoomAllTime = F2(
 						return $.G;
 					},
 					$elm$time$Time$posixToMillis)),
-			$elm_community$list_extra$List$Extra$last(tl.as));
+			$elm_community$list_extra$List$Extra$last(tl.at));
 		var mbfirst = A2(
 			$elm$core$Maybe$map,
 			A2(
@@ -40338,7 +40338,7 @@ var $author$project$Timeline$zoomAllTime = F2(
 						return $.m;
 					},
 					$elm$time$Time$posixToMillis)),
-			$elm$core$List$head(tl.as));
+			$elm$core$List$head(tl.at));
 		var _v0 = _Utils_Tuple2(mbfirst, mblast);
 		if ((!_v0.a.$) && (!_v0.b.$)) {
 			var first = _v0.a.a;
@@ -40355,7 +40355,7 @@ var $author$project$Widget$receiveData = F2(
 	function (data, model) {
 		var _v0 = A2(
 			$elm$json$Json$Decode$decodeValue,
-			$author$project$Widget$receiveDecoder(model.d.au),
+			$author$project$Widget$receiveDecoder(model.d.aj),
 			data);
 		if (_v0.$ === 1) {
 			var err = _v0.a;
@@ -40372,14 +40372,14 @@ var $author$project$Widget$receiveData = F2(
 						dk: _List_Nil,
 						Z: $elm$core$Dict$empty,
 						cG: false,
-						ar: $elm$core$Dict$empty,
+						as: $elm$core$Dict$empty,
 						bK: $elm$core$Dict$empty,
 						cg: false,
 						d: A2($author$project$Timeline$reinit, _List_Nil, model.d),
 						aT: _List_Nil
 					}));
 		} else {
-			var records = _v0.a.ar;
+			var records = _v0.a.as;
 			var content = _v0.a.gJ;
 			var maybeSelection = _v0.a.hV;
 			var fields = _v0.a.Y;
@@ -40435,9 +40435,9 @@ var $author$project$Widget$receiveData = F2(
 					var tail = _v12.b;
 					return {
 						b4: $author$project$Widget$wrapGroupeId(head),
-						a5: false,
-						bk: $author$project$Widget$wrapGroupe(head),
-						as: A2(
+						a6: false,
+						bl: $author$project$Widget$wrapGroupe(head),
+						at: A2(
 							$elm$core$List$sortBy,
 							A2(
 								$elm$core$Basics$composeR,
@@ -40514,7 +40514,7 @@ var $author$project$Widget$receiveData = F2(
 																				A2(
 																					$elm$core$Maybe$map,
 																					function (c) {
-																						return $author$project$Field$VString(c.bk);
+																						return $author$project$Field$VString(c.bl);
 																					},
 																					A2(
 																						$elm_community$list_extra$List$Extra$find,
@@ -40537,7 +40537,7 @@ var $author$project$Widget$receiveData = F2(
 																					A2(
 																						$elm$core$List$map,
 																						function (c) {
-																							return c.bk;
+																							return c.bl;
 																						},
 																						A2(
 																							$elm$core$List$filter,
@@ -40585,7 +40585,7 @@ var $author$project$Widget$receiveData = F2(
 													A2(
 														$elm$core$Maybe$map,
 														function ($) {
-															return $.bk;
+															return $.bl;
 														},
 														A2(
 															$elm_community$list_extra$List$Extra$find,
@@ -40622,7 +40622,7 @@ var $author$project$Widget$receiveData = F2(
 															A2(
 																$elm$core$Maybe$map,
 																function ($) {
-																	return $.bk;
+																	return $.bl;
 																},
 																A2(
 																	$elm_community$list_extra$List$Extra$find,
@@ -40644,7 +40644,7 @@ var $author$project$Widget$receiveData = F2(
 						records)));
 			var model_ = _Utils_update(
 				model,
-				{Y: fields_, ar: recordsDict, aT: totals});
+				{Y: fields_, as: recordsDict, aT: totals});
 			var groupsUsage = model.e.cz ? A2($author$project$Widget$addSubtotals, model_, groups) : groups;
 			var newtl = function () {
 				if (maybeSelection.$ === 1) {
@@ -40660,7 +40660,7 @@ var $author$project$Widget$receiveData = F2(
 			var totalGroups = $author$project$Widget$addTotals(model_);
 			var editableStates = A5(
 				$author$project$Widget$statesFromSelection,
-				model.d.au,
+				model.d.aj,
 				model.Q,
 				newtl.br,
 				recordsDict,
@@ -40711,7 +40711,7 @@ var $author$project$Widget$receiveData = F2(
 								}),
 							model.Z),
 						cG: false,
-						ar: recordsDict,
+						as: recordsDict,
 						bK: $elm$core$Dict$fromList(
 							A2(
 								$elm$core$List$filterMap,
@@ -40730,7 +40730,7 @@ var $author$project$Widget$receiveData = F2(
 																$author$project$Selectize$closed,
 																'_select_' + field.b4,
 																function ($) {
-																	return $.bk;
+																	return $.bl;
 																},
 																A2($elm$core$List$map, $author$project$Selectize$entry, choices))));
 												case 11:
@@ -40742,7 +40742,7 @@ var $author$project$Widget$receiveData = F2(
 																$author$project$Selectize$closed,
 																'_select_' + field.b4,
 																function ($) {
-																	return $.bk;
+																	return $.bl;
 																},
 																A2($elm$core$List$map, $author$project$Selectize$entry, choices))));
 												case 8:
@@ -40754,7 +40754,7 @@ var $author$project$Widget$receiveData = F2(
 																$author$project$Selectize$closed,
 																'_select_' + field.b4,
 																function ($) {
-																	return $.bk;
+																	return $.bl;
 																},
 																A2($elm$core$List$map, $author$project$Selectize$entry, choices))));
 												case 9:
@@ -40766,7 +40766,7 @@ var $author$project$Widget$receiveData = F2(
 																$author$project$Selectize$closed,
 																'_select_' + field.b4,
 																function ($) {
-																	return $.bk;
+																	return $.bl;
 																},
 																A2($elm$core$List$map, $author$project$Selectize$entry, choices))));
 												default:
@@ -40778,7 +40778,7 @@ var $author$project$Widget$receiveData = F2(
 								_Utils_ap(groupsFields, editable))),
 						cg: !_Utils_eq(maybeSelection, $elm$core$Maybe$Nothing),
 						eX: subgroup,
-						d: (!model.e.C) ? A2($author$project$Timeline$zoomAllTime, model.ac.at, newtl) : newtl,
+						d: (!model.e.C) ? A2($author$project$Timeline$zoomAllTime, model.ac.au, newtl) : newtl,
 						aT: totals,
 						S: A2($author$project$Timeline$reinit, totalGroups, model.S)
 					}),
@@ -40879,7 +40879,7 @@ var $author$project$Timeline$Models$selectedSections = function (tm) {
 												}(sb.q),
 												set);
 										},
-										gb.as);
+										gb.at);
 								},
 								A2($elm$core$Dict$get, gid, tm.ax)));
 						return _Utils_ap(list, res);
@@ -40902,7 +40902,7 @@ var $author$project$Timeline$applyAction = F2(
 						return _Utils_update(
 							g,
 							{
-								as: A2(
+								at: A2(
 									$elm$core$List$map,
 									function (s) {
 										if (A3($author$project$Timeline$Models$isSelected, g.b4, s.b4, ids)) {
@@ -40924,7 +40924,7 @@ var $author$project$Timeline$applyAction = F2(
 											return s;
 										}
 									},
-									g.as)
+									g.at)
 							});
 					},
 					tl.eW);
@@ -40941,11 +40941,11 @@ var $author$project$Timeline$applyAction = F2(
 							function (s) {
 								return !A3($author$project$Timeline$Models$isSelected, g.b4, s.b4, ids);
 							},
-							g.as);
+							g.at);
 						return _Utils_update(
 							g,
 							{
-								as: _Utils_eq(gid, g.b4) ? A2(
+								at: _Utils_eq(gid, g.b4) ? A2(
 									$elm$core$List$sortBy,
 									A2(
 										$elm$core$Basics$composeR,
@@ -40976,7 +40976,7 @@ var $author$project$Widget$cloneRecords = _Platform_outgoingPort(
 					$elm$json$Json$Encode$string($.O)),
 					_Utils_Tuple2(
 					'ids',
-					$elm$json$Json$Encode$list($elm$json$Json$Encode$int)($.al)),
+					$elm$json$Json$Encode$list($elm$json$Json$Encode$int)($.am)),
 					_Utils_Tuple2(
 					'sousGroupeId',
 					$elm$json$Json$Encode$string($.ai))
@@ -41010,7 +41010,7 @@ var $author$project$Widget$deleteRecords = _Platform_outgoingPort(
 				[
 					_Utils_Tuple2(
 					'ids',
-					$elm$json$Json$Encode$list($elm$json$Json$Encode$int)($.al))
+					$elm$json$Json$Encode$list($elm$json$Json$Encode$int)($.am))
 				]));
 	});
 var $author$project$Widget$msForDurationUnit = function (du) {
@@ -41050,7 +41050,7 @@ var $author$project$Widget$modifyRecordsGroup = function (args) {
 				[
 					_Utils_Tuple2(
 					'ids',
-					A2($elm$json$Json$Encode$list, $elm$json$Json$Encode$int, args.al)),
+					A2($elm$json$Json$Encode$list, $elm$json$Json$Encode$int, args.am)),
 					_Utils_Tuple2(
 					'groupeId',
 					$elm$json$Json$Encode$string(args.O)),
@@ -41095,7 +41095,7 @@ var $author$project$Widget$splitRecords = _Platform_outgoingPort(
 					$elm$json$Json$Encode$string($.fn)),
 					_Utils_Tuple2(
 					'ids',
-					$elm$json$Json$Encode$list($elm$json$Json$Encode$int)($.al))
+					$elm$json$Json$Encode$list($elm$json$Json$Encode$int)($.am))
 				]));
 	});
 var $author$project$Widget$unwrapGroupeId = function (id) {
@@ -41168,7 +41168,7 @@ var $author$project$Timeline$Models$unscale = F2(
 var $author$project$Timeline$Action$changeWheelAction = function (tl) {
 	var start = $elm$time$Time$millisToPosix(
 		$elm$core$Basics$round(
-			A2($author$project$Timeline$Models$unscale, tl.C, -tl.m) + $elm$time$Time$posixToMillis(tl.aj)));
+			A2($author$project$Timeline$Models$unscale, tl.C, -tl.m) + $elm$time$Time$posixToMillis(tl.ak)));
 	return _Utils_Tuple3(
 		tl,
 		$author$project$Timeline$Action$ChangeZoom(
@@ -41237,7 +41237,7 @@ var $author$project$Timeline$Update$groupsWheel = F3(
 						ah: A2(
 							$elm$core$Basics$max,
 							A2($elm$core$Basics$min, 0, ((-(box.fF + 0)) * lineSize) + rect.ay),
-							A2($elm$core$Basics$min, 0, box.ah - ((((clientY - rect.a_) - box.ah) / box.z) * (lineSize - box.z)))),
+							A2($elm$core$Basics$min, 0, box.ah - ((((clientY - rect.a$) - box.ah) / box.z) * (lineSize - box.z)))),
 						c9: 10
 					}));
 		} else {
@@ -41271,7 +41271,7 @@ var $author$project$Timeline$Models$normalize = F3(
 			function (x) {
 				return $elm$time$Time$millisToPosix(
 					$elm$core$Basics$round(
-						(((x - box.m) * $author$project$Timeline$Models$duration.W) / box.C) + $elm$time$Time$posixToMillis(box.aj)));
+						(((x - box.m) * $author$project$Timeline$Models$duration.W) / box.C) + $elm$time$Time$posixToMillis(box.ak)));
 			},
 			function (y) {
 				return ((y - 2) - box.ah) / box.z;
@@ -41342,7 +41342,7 @@ var $author$project$Timeline$Utils$findSection = F3(
 			sections);
 	});
 var $author$project$Timeline$Update$getUnit = function (zoom) {
-	return $author$project$Moment$toDuration(60000);
+	return $author$project$Moment$toDuration(5000);
 };
 var $author$project$Moment$greaterThan = F2(
 	function (a, b) {
@@ -41750,7 +41750,7 @@ var $author$project$Timeline$Update$sectionsDown = F2(
 				return A2(
 					$elm$core$Maybe$andThen,
 					function (gbox) {
-						return gbox.a5 ? $elm$core$Maybe$Nothing : $elm$core$Maybe$Just(sbox);
+						return gbox.a6 ? $elm$core$Maybe$Nothing : $elm$core$Maybe$Just(sbox);
 					},
 					A2($elm$core$Dict$get, sbox.dj, box.ax));
 			},
@@ -41758,13 +41758,13 @@ var $author$project$Timeline$Update$sectionsDown = F2(
 				$author$project$Timeline$Utils$findSection,
 				posix,
 				_Utils_Tuple2(line, 1 - (4 / box.z)),
-				box.as));
+				box.at));
 		var _v2 = box.I;
 		if (!_v2.$) {
 			if (_Utils_eq(button, $author$project$Timeline$Event$leftButton)) {
 				if (altKey && _Utils_eq(mbsec, $elm$core$Maybe$Nothing)) {
 					var unit = $author$project$Timeline$Update$getUnit(box.C);
-					var snapx = A3($author$project$Timeline$Update$snapToGridFloor, box.au, unit, posix);
+					var snapx = A3($author$project$Timeline$Update$snapToGridFloor, box.aj, unit, posix);
 					return $author$project$Timeline$Action$selectAction(
 						A2(
 							$author$project$Timeline$Update$updateSelection,
@@ -41929,7 +41929,7 @@ var $author$project$Timeline$Utils$findSectionsIds = F3(
 						F2(
 							function (sbox, set) {
 								var section = sbox.q;
-								return (A4($author$project$Moment$intersect, section.m, section.G, fromH, toH) && ((section.b5 || A4($author$project$Timeline$Utils$intersect, sbox.aa + gbox.bp, (sbox.aa + gbox.bp) + 1, fromV, toV)) && (!gbox.a5))) ? A3(
+								return (A4($author$project$Moment$intersect, section.m, section.G, fromH, toH) && ((section.b5 || A4($author$project$Timeline$Utils$intersect, sbox.aa + gbox.bp, (sbox.aa + gbox.bp) + 1, fromV, toV)) && (!gbox.a6))) ? A3(
 									$author$project$Timeline$Models$addToSelection,
 									gbox.b4,
 									_List_fromArray(
@@ -41937,7 +41937,7 @@ var $author$project$Timeline$Utils$findSectionsIds = F3(
 									set) : set;
 							}),
 						selset,
-						gbox.as);
+						gbox.at);
 				}),
 			$author$project$Timeline$Models$emptySelection,
 			groups);
@@ -42068,7 +42068,7 @@ var $author$project$Timeline$Update$sectionsMove = F2(
 				var line = _v2.c;
 				var snapx = A3(
 					$author$project$Timeline$Update$snapToGrid,
-					box.au,
+					box.aj,
 					unit,
 					A2($author$project$Moment$lessThan, posix, start) ? A2(
 						$author$project$Moment$minPosix,
@@ -42114,7 +42114,7 @@ var $author$project$Timeline$Update$findGroupAtPosition = F2(
 		return A2(
 			$elm_community$list_extra$List$Extra$find,
 			function (g) {
-				return (_Utils_cmp(line, g.bp) > -1) && (_Utils_cmp(line, g.bp + g.bc) < 0);
+				return (_Utils_cmp(line, g.bp) > -1) && (_Utils_cmp(line, g.bp + g.bd) < 0);
 			},
 			$elm$core$Dict$values(box.ax));
 	});
@@ -42132,10 +42132,10 @@ var $author$project$Timeline$Axis$lastDef = {
 			aM: 1,
 			aX: $elm$core$Maybe$Just(''),
 			V: 2,
-			a$: $elm$core$Maybe$Just('')
+			a0: $elm$core$Maybe$Just('')
 		},
-			{aM: 1, aX: $elm$core$Maybe$Nothing, V: 1, a$: $elm$core$Maybe$Nothing},
-			{aM: 1, aX: $elm$core$Maybe$Nothing, V: 0, a$: $elm$core$Maybe$Nothing}
+			{aM: 1, aX: $elm$core$Maybe$Nothing, V: 1, a0: $elm$core$Maybe$Nothing},
+			{aM: 1, aX: $elm$core$Maybe$Nothing, V: 0, a0: $elm$core$Maybe$Nothing}
 		]),
 	iI: 168,
 	V: 200
@@ -42149,13 +42149,13 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 				aM: 5,
 				aX: $elm$core$Maybe$Just('ss'),
 				V: 6,
-				a$: $elm$core$Maybe$Just('ss')
+				a0: $elm$core$Maybe$Just('ss')
 			},
 				{
 				aM: 1,
 				aX: $elm$core$Maybe$Just('HH:mm'),
 				V: 5,
-				a$: $elm$core$Maybe$Just('HH:mm')
+				a0: $elm$core$Maybe$Just('HH:mm')
 			}
 			]),
 		iI: 5 / 60,
@@ -42168,13 +42168,13 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 				aM: 30,
 				aX: $elm$core$Maybe$Just('ss'),
 				V: 6,
-				a$: $elm$core$Maybe$Just('ss')
+				a0: $elm$core$Maybe$Just('ss')
 			},
 				{
 				aM: 1,
 				aX: $elm$core$Maybe$Just('HH:mm'),
 				V: 5,
-				a$: $elm$core$Maybe$Just('HH:mm')
+				a0: $elm$core$Maybe$Just('HH:mm')
 			}
 			]),
 		iI: 30 / 60,
@@ -42187,13 +42187,13 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 				aM: 1,
 				aX: $elm$core$Maybe$Just('HH:00'),
 				V: 4,
-				a$: $elm$core$Maybe$Just('HH:00')
+				a0: $elm$core$Maybe$Just('HH:00')
 			},
 				{
 				aM: 1,
 				aX: $elm$core$Maybe$Just('dd MMM'),
 				V: 3,
-				a$: $elm$core$Maybe$Just('dd MMM')
+				a0: $elm$core$Maybe$Just('dd MMM')
 			}
 			]),
 		iI: 1 / 60,
@@ -42206,7 +42206,7 @@ var $author$project$Timeline$Axis$axisDefs = _List_fromArray(
 				aM: 1,
 				aX: $elm$core$Maybe$Just('dd/MM'),
 				V: 3,
-				a$: $elm$core$Maybe$Just('dd/MM')
+				a0: $elm$core$Maybe$Just('dd/MM')
 			}
 			]),
 		iI: 1 / 60,
@@ -42296,7 +42296,7 @@ var $author$project$Timeline$Models$minDurationOf = F2(
 							function (a) {
 								return _Utils_eq(a.q.b4, sid);
 							},
-							gbox.as);
+							gbox.at);
 						if (_v1.$ === 1) {
 							return res;
 						} else {
@@ -42330,7 +42330,7 @@ var $author$project$Timeline$Update$sectionsUp = F2(
 					var _v6 = A2($elm$core$Dict$get, gid, box.ax);
 					if (!_v6.$) {
 						var group = _v6.a;
-						return group.a5 ? $elm$core$Set$empty : set;
+						return group.a6 ? $elm$core$Set$empty : set;
 					} else {
 						return $elm$core$Set$empty;
 					}
@@ -42390,7 +42390,7 @@ var $author$project$Timeline$Update$sectionsUp = F2(
 								var destGroup = A2($author$project$Timeline$Update$findGroupAtPosition, destGI, box);
 								if (!destGroup.$) {
 									var g = destGroup.a;
-									return g.a5 ? $author$project$Timeline$Action$NoAction : ((mtype === 1) ? A2($author$project$Timeline$Action$MoveSections, selection, g.b4) : A3(
+									return g.a6 ? $author$project$Timeline$Action$NoAction : ((mtype === 1) ? A2($author$project$Timeline$Action$MoveSections, selection, g.b4) : A3(
 										$author$project$Timeline$Action$CloneSections,
 										selection,
 										$author$project$Moment$toDuration(0),
@@ -42492,7 +42492,7 @@ var $author$project$Timeline$Update$sectionsUp = F2(
 				var create = function () {
 					if (!maybe.$) {
 						var g = maybe.a;
-						return !g.a5;
+						return !g.a6;
 					} else {
 						return true;
 					}
@@ -42657,7 +42657,7 @@ var $author$project$Timeline$Update$sectionsWheel = F3(
 					var ax = A3($author$project$Timeline$Models$normalize, newbox, x, y).a;
 					var snapx = A3(
 						$author$project$Timeline$Update$snapToGrid,
-						newbox.au,
+						newbox.aj,
 						unit,
 						A2($author$project$Moment$lessThan, ax, start) ? A2(
 							$author$project$Moment$minPosix,
@@ -42704,7 +42704,7 @@ var $author$project$Timeline$showDate = F3(
 					_Utils_Tuple2(
 						$elm$time$Time$millisToPosix(-1),
 						-1)),
-				m: (($elm$time$Time$posixToMillis(tl.aj) - firstms) * (tl.C / $author$project$Timeline$Models$duration.W)) + ((size - tl.aH) * 0.02)
+				m: (($elm$time$Time$posixToMillis(tl.ak) - firstms) * (tl.C / $author$project$Timeline$Models$duration.W)) + ((size - tl.aH) * 0.02)
 			});
 	});
 var $author$project$Timeline$Update$snapToGridForZoom = F3(
@@ -42728,7 +42728,7 @@ var $author$project$Timeline$zoomOver = F4(
 					_Utils_Tuple2(
 						$elm$time$Time$millisToPosix(-1),
 						-1)),
-				m: (($elm$time$Time$posixToMillis(tl.aj) - firstms) * (zoom / $author$project$Timeline$Models$duration.W)) + ((size - tl.aH) * 0.02),
+				m: (($elm$time$Time$posixToMillis(tl.ak) - firstms) * (zoom / $author$project$Timeline$Models$duration.W)) + ((size - tl.aH) * 0.02),
 				C: zoom
 			});
 	});
@@ -42752,7 +42752,7 @@ var $author$project$Timeline$update = F3(
 						rect,
 						{ay: rect.ay - axisSize}) : _Utils_update(
 						rect,
-						{at: rect.at - axisSize}),
+						{au: rect.au - axisSize}),
 					event);
 			case 2:
 				var event = msg.a;
@@ -42762,7 +42762,7 @@ var $author$project$Timeline$update = F3(
 				return A2($author$project$Timeline$Update$sectionsDown, box, event);
 			case 7:
 				return $author$project$Timeline$Action$noAction(
-					A2($author$project$Timeline$zoomAllTime, rect.at, box));
+					A2($author$project$Timeline$zoomAllTime, rect.au, box));
 			case 4:
 				var event = msg.a;
 				return A2($author$project$Timeline$Update$sectionsUp, box, event);
@@ -42793,7 +42793,7 @@ var $author$project$Timeline$update = F3(
 				return A3(
 					$author$project$Timeline$Update$groupsWheel,
 					box,
-					(!box.o) ? {ay: rect.ay - axisSize, a_: axisSize, at: rect.at} : {ay: rect.at - axisSize, a_: axisSize, at: rect.ay},
+					(!box.o) ? {ay: rect.ay - axisSize, a$: axisSize, au: rect.au} : {ay: rect.au - axisSize, a$: axisSize, au: rect.ay},
 					event);
 			case 9:
 				var dndmsg = msg.a;
@@ -42806,14 +42806,14 @@ var $author$project$Timeline$update = F3(
 				var _v1 = A3(
 					$author$project$Timeline$system(box.o).ma,
 					dndmsg,
-					box.bi,
+					box.bj,
 					orig);
 				var dnd = _v1.a;
 				var groups = _v1.b;
 				return _Utils_Tuple3(
 					_Utils_update(
 						box,
-						{bi: dnd}),
+						{bj: dnd}),
 					_Utils_eq(groups, orig) ? $author$project$Timeline$Action$NoAction : $author$project$Timeline$Action$ReorderGroups(
 						A2(
 							$elm$core$List$map,
@@ -42844,7 +42844,7 @@ var $author$project$Timeline$update = F3(
 							A2(
 								$elm$core$Maybe$map,
 								function ($) {
-									return $.as;
+									return $.at;
 								},
 								A2($elm$core$Dict$get, gid, box.ax)))),
 					shiftKey ? box.br : $author$project$Timeline$Models$emptySelection);
@@ -42867,7 +42867,7 @@ var $author$project$Timeline$update = F3(
 									A2(
 										$elm$core$Maybe$withDefault,
 										'',
-										$elm$core$List$head(group.bk)))
+										$elm$core$List$head(group.bl)))
 							}),
 						$author$project$Timeline$Action$NoAction,
 						A2(
@@ -42956,7 +42956,7 @@ var $author$project$Timeline$update = F3(
 									A3(
 										$author$project$Timeline$showDate,
 										box.bU,
-										(!box.o) ? rect.at : rect.ay,
+										(!box.o) ? rect.au : rect.ay,
 										box)));
 						case 83:
 							if (_v4.b) {
@@ -42969,7 +42969,7 @@ var $author$project$Timeline$update = F3(
 										A2(
 											$author$project$Timeline$Action$Split,
 											box.br,
-											A3($author$project$Timeline$Update$snapToGridForZoom, box.C, box.au, time)),
+											A3($author$project$Timeline$Update$snapToGridForZoom, box.C, box.aj, time)),
 										$elm$core$Platform$Cmd$none);
 								} else {
 									return $author$project$Timeline$Action$noAction(box);
@@ -42983,7 +42983,7 @@ var $author$project$Timeline$update = F3(
 								function ($) {
 									return $.q;
 								},
-								box.as) : $author$project$Timeline$Models$selectedSections(box);
+								box.at) : $author$project$Timeline$Models$selectedSections(box);
 							var _v7 = _Utils_Tuple2(
 								$elm$core$List$head(selection),
 								$elm_community$list_extra$List$Extra$last(selection));
@@ -42998,7 +42998,7 @@ var $author$project$Timeline$update = F3(
 											$author$project$Timeline$zoomOver,
 											first.m,
 											last.G,
-											(!box.o) ? rect.at : rect.ay,
+											(!box.o) ? rect.au : rect.ay,
 											box)));
 							} else {
 								return $author$project$Timeline$Action$noAction(box);
@@ -43056,7 +43056,7 @@ var $author$project$Widget$timelineUpdate = F2(
 		var options = model.e;
 		var totalsSize = $elm$core$Basics$round(
 			model.S.z * ($elm$core$List$length(model.aT) + (model.e.aD ? 1 : 0)));
-		var rect = (!model.e.o) ? {ay: model.ac.ay - totalsSize, at: model.ac.at} : {ay: model.ac.ay, at: model.ac.at - totalsSize};
+		var rect = (!model.e.o) ? {ay: model.ac.ay - totalsSize, au: model.ac.au} : {ay: model.ac.ay, au: model.ac.au - totalsSize};
 		var groupFieldEditable = A2(
 			$elm$core$Maybe$withDefault,
 			false,
@@ -43071,18 +43071,18 @@ var $author$project$Widget$timelineUpdate = F2(
 		var action = _v0.b;
 		var tcmd = _v0.c;
 		var updateFieldCmd = function () {
-			if ($elm$core$String$isEmpty(model.ak)) {
+			if ($elm$core$String$isEmpty(model.al)) {
 				return $elm$core$Platform$Cmd$none;
 			} else {
 				var _v12 = _Utils_Tuple2(
 					action,
-					A2($elm$core$Dict$get, model.ak, model.U));
+					A2($elm$core$Dict$get, model.al, model.U));
 				if (((_v12.a.$ === 1) && (!_v12.b.$)) && (!_v12.b.a.$)) {
 					var str = _v12.b.a.a;
 					return A3(
 						$author$project$Widget$makeFieldUpdate,
 						model,
-						model.ak,
+						model.al,
 						$author$project$Field$valueToRawString(str));
 				} else {
 					return $elm$core$Platform$Cmd$none;
@@ -43096,7 +43096,7 @@ var $author$project$Widget$timelineUpdate = F2(
 				var end = action.c;
 				return _Utils_Tuple2(
 					3,
-					A5($author$project$Widget$fieldsFromDates, model.d.au, model.Q, start, end, model.Z));
+					A5($author$project$Widget$fieldsFromDates, model.d.aj, model.Q, start, end, model.Z));
 			} else {
 				return _Utils_Tuple2(model.bL, model.Z);
 			}
@@ -43116,7 +43116,7 @@ var $author$project$Widget$timelineUpdate = F2(
 							{
 								fk: ($author$project$Moment$fromDuration(addend) / 1000) | 0,
 								cr: ($author$project$Moment$fromDuration(addstart) / 1000) | 0,
-								al: A2(
+								am: A2(
 									$elm$core$List$filterMap,
 									$elm$core$String$toInt,
 									$elm$core$Set$toList(
@@ -43141,7 +43141,7 @@ var $author$project$Widget$timelineUpdate = F2(
 											return $.O;
 										},
 										mbg)),
-								al: A2(
+								am: A2(
 									$elm$core$List$filterMap,
 									$elm$core$String$toInt,
 									$elm$core$Set$toList(
@@ -43167,7 +43167,7 @@ var $author$project$Widget$timelineUpdate = F2(
 							{
 								cr: 0,
 								O: '',
-								al: A2(
+								am: A2(
 									$elm$core$List$filterMap,
 									$elm$core$String$toInt,
 									$elm$core$Set$toList(
@@ -43180,7 +43180,7 @@ var $author$project$Widget$timelineUpdate = F2(
 						model,
 						$author$project$Widget$deleteRecords(
 							{
-								al: A2($elm$core$List$filterMap, $elm$core$String$toInt, ids)
+								am: A2($elm$core$List$filterMap, $elm$core$String$toInt, ids)
 							}));
 				case 3:
 					var ids = action.a;
@@ -43192,7 +43192,7 @@ var $author$project$Widget$timelineUpdate = F2(
 							$author$project$Widget$modifyRecordsGroup(
 								{
 									O: g.O,
-									al: A2(
+									am: A2(
 										$elm$core$List$filterMap,
 										$elm$core$String$toInt,
 										$elm$core$Set$toList(
@@ -43216,7 +43216,7 @@ var $author$project$Widget$timelineUpdate = F2(
 									{cG: true}),
 								$author$project$Widget$createRecord(
 									{
-										fn: A2($f0i$iso8601$Iso8601$toDateTimeString, model.d.au, from),
+										fn: A2($f0i$iso8601$Iso8601$toDateTimeString, model.d.aj, from),
 										fs: ($author$project$Moment$fromDuration(
 											A2($author$project$Moment$durationBetween, from, to)) / 1000) | 0,
 										O: g.O,
@@ -43255,10 +43255,10 @@ var $author$project$Widget$timelineUpdate = F2(
 							{
 								U: _Utils_eq(sel, model.d.br) ? model.U : A5(
 									$author$project$Widget$statesFromSelection,
-									model.d.au,
+									model.d.aj,
 									model.Q,
 									sel,
-									model.ar,
+									model.as,
 									A2(
 										$elm$core$Dict$filter,
 										F2(
@@ -43280,8 +43280,8 @@ var $author$project$Widget$timelineUpdate = F2(
 						model,
 						$author$project$Widget$splitRecords(
 							{
-								fn: A2($f0i$iso8601$Iso8601$toDateTimeString, model.d.au, date),
-								al: A2(
+								fn: A2($f0i$iso8601$Iso8601$toDateTimeString, model.d.aj, date),
+								am: A2(
 									$elm$core$List$filterMap,
 									$elm$core$String$toInt,
 									$elm$core$Set$toList(
@@ -43356,7 +43356,7 @@ var $author$project$Widget$totalsUpdate = F2(
 		var options = model.e;
 		var totalsSize = $elm$core$Basics$round(
 			model.S.z * ($elm$core$List$length(model.aT) + (model.e.aD ? 1 : 0)));
-		var box = (!model.e.o) ? {ay: totalsSize, at: model.ac.at} : {ay: model.ac.ay, at: totalsSize};
+		var box = (!model.e.o) ? {ay: totalsSize, au: model.ac.au} : {ay: model.ac.ay, au: totalsSize};
 		var _v0 = A3($author$project$Timeline$update, tmsg, model.S, box);
 		var state = _v0.a;
 		var action = _v0.b;
@@ -43408,7 +43408,7 @@ var $author$project$Selectize$Internal$blur = function (id) {
 			$author$project$Selectize$Internal$textfieldId(id)));
 };
 var $author$project$Selectize$Internal$currentEntry = function (_v0) {
-	var current = _v0.ap;
+	var current = _v0.aq;
 	if (!current.a.$) {
 		var a = current.a.a;
 		return $elm$core$Maybe$Just(a);
@@ -43471,7 +43471,7 @@ var $author$project$Selectize$Internal$zip = F2(
 	});
 var $author$project$Selectize$Internal$zipFirst = function (zipList) {
 	var front = zipList.aQ;
-	var current = zipList.ap;
+	var current = zipList.aq;
 	var back = zipList.aC;
 	var currentTop = zipList.aE;
 	if (current.a.$ === 1) {
@@ -43483,7 +43483,7 @@ var $author$project$Selectize$Internal$zipFirst = function (zipList) {
 			return $author$project$Selectize$Internal$zipFirst(
 				{
 					aC: rest,
-					ap: next,
+					aq: next,
 					aE: currentTop + current.b,
 					aQ: A2($elm$core$List$cons, current, front)
 				});
@@ -43507,7 +43507,7 @@ var $author$project$Selectize$Internal$fromList = F2(
 			return $author$project$Selectize$Internal$zipFirst(
 				{
 					aC: A2($author$project$Selectize$Internal$zip, restEntries, restHeights),
-					ap: _Utils_Tuple2(firstEntry, firstHeight),
+					aq: _Utils_Tuple2(firstEntry, firstHeight),
 					aE: 0,
 					aQ: _List_Nil
 				});
@@ -43549,14 +43549,14 @@ var $author$project$Selectize$Internal$fromListWithFilter = F3(
 			var first = filtered.a;
 			var rest = filtered.b;
 			return $author$project$Selectize$Internal$zipFirst(
-				{aC: rest, ap: first, aE: 0, aQ: _List_Nil});
+				{aC: rest, aq: first, aE: 0, aQ: _List_Nil});
 		} else {
 			return $elm$core$Maybe$Nothing;
 		}
 	});
 var $author$project$Selectize$Internal$zipNext = function (zipList) {
 	var front = zipList.aQ;
-	var current = zipList.ap;
+	var current = zipList.aq;
 	var back = zipList.aC;
 	var currentTop = zipList.aE;
 	if (!back.b) {
@@ -43570,7 +43570,7 @@ var $author$project$Selectize$Internal$zipNext = function (zipList) {
 			$author$project$Selectize$Internal$zipFirst(
 				{
 					aC: rest,
-					ap: next,
+					aq: next,
 					aE: currentTop + current.b,
 					aQ: A2($elm$core$List$cons, current, front)
 				}));
@@ -43579,7 +43579,7 @@ var $author$project$Selectize$Internal$zipNext = function (zipList) {
 var $author$project$Selectize$Internal$moveForwardToHelper = F2(
 	function (a, zipList) {
 		if (_Utils_eq(
-			zipList.ap.a,
+			zipList.aq.a,
 			$author$project$Selectize$Internal$Entry(a))) {
 			return $elm$core$Maybe$Just(zipList);
 		} else {
@@ -43632,7 +43632,7 @@ var $author$project$Selectize$Internal$scroll = F2(
 					$author$project$Selectize$Internal$menuId(id))));
 	});
 var $author$project$Selectize$Internal$zipCurrentHeight = function (_v0) {
-	var current = _v0.ap;
+	var current = _v0.aq;
 	return current.b;
 };
 var $author$project$Selectize$Internal$scrollToKeyboardFocus = F3(
@@ -43661,7 +43661,7 @@ var $author$project$Selectize$Internal$scrollToKeyboardFocus = F3(
 	});
 var $author$project$Selectize$Internal$zipReverseFirst = function (zipList) {
 	var front = zipList.aQ;
-	var current = zipList.ap;
+	var current = zipList.aq;
 	var back = zipList.aC;
 	var currentTop = zipList.aE;
 	if (current.a.$ === 1) {
@@ -43673,7 +43673,7 @@ var $author$project$Selectize$Internal$zipReverseFirst = function (zipList) {
 			return $author$project$Selectize$Internal$zipReverseFirst(
 				{
 					aC: A2($elm$core$List$cons, current, back),
-					ap: previous,
+					aq: previous,
 					aE: currentTop - previous.b,
 					aQ: rest
 				});
@@ -43684,7 +43684,7 @@ var $author$project$Selectize$Internal$zipReverseFirst = function (zipList) {
 };
 var $author$project$Selectize$Internal$zipPrevious = function (zipList) {
 	var front = zipList.aQ;
-	var current = zipList.ap;
+	var current = zipList.aq;
 	var back = zipList.aC;
 	var currentTop = zipList.aE;
 	if (!front.b) {
@@ -43698,7 +43698,7 @@ var $author$project$Selectize$Internal$zipPrevious = function (zipList) {
 			$author$project$Selectize$Internal$zipReverseFirst(
 				{
 					aC: A2($elm$core$List$cons, current, back),
-					ap: previous,
+					aq: previous,
 					aE: currentTop - previous.b,
 					aQ: rest
 				}));
@@ -43741,7 +43741,7 @@ var $author$project$Selectize$Internal$update = F3(
 							return $elm$core$Basics$identity;
 						}
 					}(),
-					A2($author$project$Selectize$Internal$fromList, state.a2, heights.a2));
+					A2($author$project$Selectize$Internal$fromList, state.a3, heights.a3));
 				var top = A2(
 					$elm$core$Maybe$withDefault,
 					0,
@@ -43758,7 +43758,7 @@ var $author$project$Selectize$Internal$update = F3(
 				return _Utils_Tuple3(
 					_Utils_update(
 						state,
-						{eg: heights.a2, dp: heights.hX, bF: $elm$core$Maybe$Nothing, cU: true, cd: '', f0: scrollTop, aJ: newZipList}),
+						{eg: heights.a3, dp: heights.hX, bF: $elm$core$Maybe$Nothing, cU: true, cd: '', f0: scrollTop, aJ: newZipList}),
 					A2($author$project$Selectize$Internal$scroll, state.b4, top - ((heights.hX - height) / 2)),
 					$author$project$Selectize$Internal$NoAction);
 			case 2:
@@ -43786,7 +43786,7 @@ var $author$project$Selectize$Internal$update = F3(
 					$author$project$Selectize$Internal$NoAction);
 			case 6:
 				var newQuery = msg.a;
-				var newZipList = A3($author$project$Selectize$Internal$fromListWithFilter, newQuery, state.a2, state.eg);
+				var newZipList = A3($author$project$Selectize$Internal$fromListWithFilter, newQuery, state.a3, state.eg);
 				return _Utils_Tuple3(
 					_Utils_update(
 						state,
@@ -43982,7 +43982,7 @@ var $author$project$Widget$validateNewMoment = function (model) {
 		var debut = _v0.b.a;
 		var duree = _v0.c.a;
 		var args = {
-			fn: A2($f0i$iso8601$Iso8601$toDateTimeString, model.d.au, debut),
+			fn: A2($f0i$iso8601$Iso8601$toDateTimeString, model.d.aj, debut),
 			fs: $elm$core$Basics$round(
 				duree * $author$project$Widget$secondsForDurationUnit(model.Q)),
 			O: group,
@@ -44152,7 +44152,7 @@ var $author$project$Widget$update = F2(
 									$author$project$Widget$Val(
 										$author$project$Field$VString(str)),
 									model.U),
-								ak: _Utils_eq(model.ak, field) ? '' : model.ak
+								al: _Utils_eq(model.al, field) ? '' : model.al
 							}),
 						A3($author$project$Widget$makeFieldUpdate, model, field, str));
 				} else {
@@ -44160,8 +44160,8 @@ var $author$project$Widget$update = F2(
 						_Utils_update(
 							model,
 							{
-								ak: _Utils_eq(model.ak, field) ? '' : model.ak,
-								Z: A5($author$project$Widget$updateGroupsField, model.d.au, model.Q, field, str, model.Z)
+								al: _Utils_eq(model.al, field) ? '' : model.al,
+								Z: A5($author$project$Widget$updateGroupsField, model.d.aj, model.Q, field, str, model.Z)
 							}),
 						$elm$core$Platform$Cmd$none);
 				}
@@ -44191,10 +44191,10 @@ var $author$project$Widget$update = F2(
 									field,
 									A5(
 										$author$project$Widget$statesFromSelection,
-										model.d.au,
+										model.d.aj,
 										model.Q,
 										model.d.br,
-										model.ar,
+										model.as,
 										A2(
 											$elm$core$Dict$filter,
 											F2(
@@ -44207,7 +44207,7 @@ var $author$project$Widget$update = F2(
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
-							{U: upd, ak: ''}),
+							{U: upd, al: ''}),
 						A2(
 							$elm$core$Task$attempt,
 							$elm$core$Basics$always($author$project$Widget$NoOp),
@@ -44216,7 +44216,7 @@ var $author$project$Widget$update = F2(
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
-							{ak: ''}),
+							{al: ''}),
 						A2(
 							$elm$core$Task$attempt,
 							$elm$core$Basics$always($author$project$Widget$NoOp),
@@ -44422,7 +44422,7 @@ var $author$project$Widget$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{ak: field}),
+						{al: field}),
 					$elm$core$Platform$Cmd$none);
 			case 15:
 				var id = msg.a;
@@ -44589,10 +44589,10 @@ var $author$project$Widget$update = F2(
 							Q: du,
 							U: A5(
 								$author$project$Widget$statesFromSelection,
-								model.d.au,
+								model.d.aj,
 								du,
 								model.d.br,
-								model.ar,
+								model.as,
 								A2(
 									$elm$core$Dict$filter,
 									F2(
@@ -44813,7 +44813,7 @@ var $author$project$Selectize$Internal$focusDecoder = A4(
 		function (entryHeights, menuHeight, scrollTop) {
 			return A2(
 				$author$project$Selectize$Internal$OpenMenu,
-				{a2: entryHeights, hX: menuHeight},
+				{a3: entryHeights, hX: menuHeight},
 				scrollTop);
 		}),
 	$author$project$Selectize$Internal$entryHeightsDecoder,
@@ -44988,7 +44988,7 @@ var $elm$svg$Svg$Attributes$d = _VirtualDom_attribute('d');
 var $phosphor_icons$phosphor_elm$Phosphor$IconVariant = $elm$core$Basics$identity;
 var $phosphor_icons$phosphor_elm$Phosphor$defaultAttributes = {
 	gE: $elm$core$Maybe$Just('ph-icon'),
-	bc: 1,
+	bd: 1,
 	dy: 'em'
 };
 var $phosphor_icons$phosphor_elm$Phosphor$makeBuilder = function (src) {
@@ -45192,7 +45192,7 @@ var $phosphor_icons$phosphor_elm$Phosphor$toHtml = F2(
 	function (attributes, _v0) {
 		var src = _v0.h;
 		var attrs = _v0.fd;
-		var strSize = $elm$core$String$fromFloat(attrs.bc);
+		var strSize = $elm$core$String$fromFloat(attrs.bd);
 		var baseAttributes = _List_fromArray(
 			[
 				$phosphor_icons$phosphor_elm$Phosphor$xmlns('http://www.w3.org/2000/svg'),
@@ -45384,7 +45384,7 @@ var $author$project$Selectize$Internal$view = F3(
 			$elm$core$Tuple$second,
 			A2(
 				$elm$core$Maybe$andThen,
-				$author$project$Selectize$Internal$selectFirst(state.a2),
+				$author$project$Selectize$Internal$selectFirst(state.a3),
 				selection));
 		var menuAttrs = _Utils_ap(
 			_List_fromArray(
@@ -45428,7 +45428,7 @@ var $author$project$Selectize$Internal$view = F3(
 										$elm$core$Basics$composeR,
 										$author$project$Selectize$Internal$removeLabel,
 										A2($author$project$Selectize$Internal$viewUnfocusedEntry, config, $elm$core$Maybe$Nothing)),
-									state.a2))
+									state.a3))
 							]))
 					]));
 		} else {
@@ -45457,7 +45457,7 @@ var $author$project$Selectize$Internal$view = F3(
 											A3($author$project$Selectize$Internal$viewEntries, config, state, zipList.aQ)),
 											_List_fromArray(
 											[
-												A3($author$project$Selectize$Internal$viewCurrentEntry, config, state, zipList.ap)
+												A3($author$project$Selectize$Internal$viewCurrentEntry, config, state, zipList.aq)
 											]),
 											A3($author$project$Selectize$Internal$viewEntries, config, state, zipList.aC)
 										])))
@@ -45476,7 +45476,7 @@ var $phosphor_icons$phosphor_elm$Phosphor$withSize = F2(
 		return {
 			fd: _Utils_update(
 				attrs,
-				{bc: size}),
+				{bd: size}),
 			h: src
 		};
 	});
@@ -45663,7 +45663,7 @@ var $author$project$Widget$fieldsView = F4(
 		var records = A2(
 			$elm$core$List$filterMap,
 			function (id) {
-				return A2($elm$core$Dict$get, id, model.ar);
+				return A2($elm$core$Dict$get, id, model.as);
 			},
 			$elm$core$Set$toList(
 				$author$project$Timeline$Models$selectionToSet(model.d.br)));
@@ -45690,7 +45690,7 @@ var $author$project$Widget$fieldsView = F4(
 						var ratadie = $justinmimbs$date$Date$toRataDie(
 							A2(
 								$justinmimbs$date$Date$fromPosix,
-								model.d.au,
+								model.d.aj,
 								$elm$time$Time$millisToPosix(rec.fn)));
 						return A3(
 							$elm$core$Dict$update,
@@ -45752,7 +45752,7 @@ var $author$project$Widget$fieldsView = F4(
 						]),
 					_List_fromArray(
 						[
-							$elm$html$Html$text(choice.bk),
+							$elm$html$Html$text(choice.bl),
 							subv
 						]));
 			});
@@ -45990,7 +45990,7 @@ var $author$project$Widget$fieldsView = F4(
 												]),
 											_List_fromArray(
 												[
-													$elm$html$Html$text(field.bk),
+													$elm$html$Html$text(field.bl),
 													_Utils_eq(field.R.b4, $author$project$Widget$dureeFieldId) ? A2(
 													$elm$html$Html$span,
 													_List_fromArray(
@@ -46166,7 +46166,7 @@ var $author$project$Widget$fieldsView = F4(
 																			$elm$html$Html$Events$keyCode)),
 																		$elm$html$Html$Events$onFocus(
 																		$author$project$Widget$FocusField(field.M)),
-																		_Utils_eq(field.M, model.ak) ? $elm$html$Html$Events$onBlur(
+																		_Utils_eq(field.M, model.al) ? $elm$html$Html$Events$onBlur(
 																		function () {
 																			var _v13 = field.az;
 																			if ((!_v13.$) && (!_v13.a.$)) {
@@ -46294,7 +46294,7 @@ var $author$project$Widget$fieldsView = F4(
 															$elm$html$Html$Events$keyCode)),
 														$elm$html$Html$Events$onFocus(
 														$author$project$Widget$FocusField(field.M)),
-														_Utils_eq(field.M, model.ak) ? $elm$html$Html$Events$onBlur(
+														_Utils_eq(field.M, model.al) ? $elm$html$Html$Events$onBlur(
 														function () {
 															var _v17 = field.az;
 															if ((!_v17.$) && (!_v17.a.$)) {
@@ -46395,7 +46395,7 @@ var $author$project$Widget$fieldsView = F4(
 														{
 															aF: $elm$core$Maybe$Nothing,
 															R: field,
-															bk: field.bk,
+															bl: field.bl,
 															az: $elm$core$Maybe$Just(val),
 															bG: false,
 															M: key
@@ -46403,7 +46403,7 @@ var $author$project$Widget$fieldsView = F4(
 												case 1:
 													var _v4 = mbvalue.a;
 													return $elm$core$Maybe$Just(
-														{aF: $elm$core$Maybe$Nothing, R: field, bk: field.bk, az: $elm$core$Maybe$Nothing, bG: true, M: key});
+														{aF: $elm$core$Maybe$Nothing, R: field, bl: field.bl, az: $elm$core$Maybe$Nothing, bG: true, M: key});
 												default:
 													var _v5 = mbvalue.a;
 													var str = _v5.b;
@@ -46411,7 +46411,7 @@ var $author$project$Widget$fieldsView = F4(
 														{
 															aF: $elm$core$Maybe$Just('Erreur : ' + str),
 															R: field,
-															bk: field.bk,
+															bl: field.bl,
 															az: $elm$core$Maybe$Nothing,
 															bG: false,
 															M: key
@@ -46422,7 +46422,7 @@ var $author$project$Widget$fieldsView = F4(
 												{
 													aF: $elm$core$Maybe$Just('Erreur'),
 													R: field,
-													bk: field.bk,
+													bl: field.bl,
 													az: $elm$core$Maybe$Nothing,
 													bG: false,
 													M: key
@@ -46722,7 +46722,7 @@ var $author$project$View$Segment$view = F4(
 								toMsg(opt.mc))
 							]),
 						_List_fromArray(
-							[opt.bk]));
+							[opt.bl]));
 				},
 				opts));
 	});
@@ -46818,12 +46818,12 @@ var $author$project$Widget$settingsView = function (model) {
 						_List_fromArray(
 							[
 								{
-								bk: $elm$html$Html$text(
+								bl: $elm$html$Html$text(
 									$author$project$Widget$Translations$hours(model.w)),
 								mc: 0
 							},
 								{
-								bk: $elm$html$Html$text(
+								bl: $elm$html$Html$text(
 									$author$project$Widget$Translations$minutes(model.w)),
 								mc: 1
 							}
@@ -46846,12 +46846,12 @@ var $author$project$Widget$settingsView = function (model) {
 						_List_fromArray(
 							[
 								{
-								bk: $elm$html$Html$text(
+								bl: $elm$html$Html$text(
 									$author$project$Widget$Translations$horizontal(model.w)),
 								mc: 0
 							},
 								{
-								bk: $elm$html$Html$text(
+								bl: $elm$html$Html$text(
 									$author$project$Widget$Translations$vertical(model.w)),
 								mc: 1
 							}
@@ -46874,17 +46874,17 @@ var $author$project$Widget$settingsView = function (model) {
 						_List_fromArray(
 							[
 								{
-								bk: $elm$html$Html$text(
+								bl: $elm$html$Html$text(
 									$author$project$Widget$Translations$light(model.w)),
 								mc: $elm$core$Maybe$Just(0)
 							},
 								{
-								bk: $elm$html$Html$text(
+								bl: $elm$html$Html$text(
 									$author$project$Widget$Translations$dark(model.w)),
 								mc: $elm$core$Maybe$Just(1)
 							},
 								{
-								bk: $elm$html$Html$text(
+								bl: $elm$html$Html$text(
 									$author$project$Widget$Translations$auto(model.w)),
 								mc: $elm$core$Maybe$Nothing
 							}
@@ -47743,7 +47743,7 @@ var $author$project$Timeline$drawColsBackground = F3(
 									A2(
 									$elm$html$Html$Attributes$style,
 									'width',
-									$elm$core$String$fromFloat(lineSize * g.bc) + 'px'),
+									$elm$core$String$fromFloat(lineSize * g.bd) + 'px'),
 									A2($elm$html$Html$Attributes$style, 'height', '100%'),
 									A2($elm$html$Html$Attributes$style, 'display', 'inline-block')
 								]),
@@ -47808,7 +47808,7 @@ var $author$project$Timeline$ghostView = F5(
 							A2(
 							$elm$html$Html$Attributes$style,
 							'height',
-							$elm$core$String$fromInt(lineSize * item.bc) + 'px'),
+							$elm$core$String$fromInt(lineSize * item.bd) + 'px'),
 							A2(
 							$elm$html$Html$Attributes$style,
 							'max-width',
@@ -47831,7 +47831,7 @@ var $author$project$Timeline$ghostView = F5(
 						A2(
 						$elm$html$Html$div,
 						_List_Nil,
-						$author$project$Timeline$groupLabelsToHtml(item.bk))
+						$author$project$Timeline$groupLabelsToHtml(item.bl))
 					]));
 		} else {
 			return $elm$html$Html$text('');
@@ -47909,11 +47909,11 @@ var $author$project$Timeline$groupView = function (dnd) {
 												}
 											}();
 											var _v0 = (!direction) ? _Utils_Tuple2(
-												_Utils_Tuple3(fullSize, lineSize * group.bc, 'block'),
+												_Utils_Tuple3(fullSize, lineSize * group.bd, 'block'),
 												_Utils_Tuple2(
 													$elm$core$String$fromInt(size) + 'px',
 													'100%')) : _Utils_Tuple2(
-												_Utils_Tuple3(lineSize * group.bc, fullSize, 'inline-block'),
+												_Utils_Tuple3(lineSize * group.bd, fullSize, 'inline-block'),
 												_Utils_Tuple2(
 													'100%',
 													$elm$core$String$fromInt(size) + 'px'));
@@ -47979,7 +47979,7 @@ var $author$project$Timeline$groupView = function (dnd) {
 																			A2(
 																			$elm$html$Html$div,
 																			_List_Nil,
-																			$author$project$Timeline$groupLabelsToHtml(group.bk))
+																			$author$project$Timeline$groupLabelsToHtml(group.bl))
 																		]))
 																])) : A2(
 															$elm$html$Html$div,
@@ -48096,7 +48096,7 @@ var $author$project$Timeline$groupView = function (dnd) {
 																				return A2(
 																					$elm$html$Html$div,
 																					_List_Nil,
-																					$author$project$Timeline$groupLabelsToHtml(group.bk));
+																					$author$project$Timeline$groupLabelsToHtml(group.bl));
 																			}
 																		}()
 																		]))
@@ -48149,7 +48149,7 @@ var $author$project$Timeline$drawGroups = F2(
 								A2(
 									$elm$core$List$map,
 									function ($) {
-										return $.bc;
+										return $.bd;
 									},
 									$elm$core$Dict$values(groups))))) + 'px')
 				]),
@@ -48204,7 +48204,7 @@ var $author$project$Timeline$drawGroups = F2(
 							function (idx, _v0) {
 								var id = _v0.a;
 								var grp = _v0.b;
-								return $author$project$Timeline$groupView(box.bi)(box.o)(box.z)(size)(size)(
+								return $author$project$Timeline$groupView(box.bj)(box.o)(box.z)(size)(size)(
 									function () {
 										var _v1 = box.I;
 										if (_v1.$ === 6) {
@@ -48228,7 +48228,7 @@ var $author$project$Timeline$drawGroups = F2(
 							$elm$core$Dict$toList(groups)))),
 					A5(
 					$author$project$Timeline$ghostView,
-					box.bi,
+					box.bj,
 					box.o,
 					size,
 					$elm$core$Basics$round(box.z),
@@ -48261,7 +48261,7 @@ var $author$project$Timeline$drawRowsBackground = F3(
 									A2(
 									$elm$html$Html$Attributes$style,
 									'height',
-									$elm$core$String$fromFloat(lineSize * g.bc) + 'px')
+									$elm$core$String$fromFloat(lineSize * g.bd) + 'px')
 								]),
 							_List_Nil);
 					}),
@@ -49082,7 +49082,7 @@ var $enkidatron$elm_cldr$Internal$Options$timeMatchScore = F2(
 					A3($enkidatron$elm_cldr$Internal$Options$score, $enkidatron$elm_cldr$Internal$Options$rankNumber, requested.eG, candidate.eG),
 					A3($enkidatron$elm_cldr$Internal$Options$score, $enkidatron$elm_cldr$Internal$Options$rankNumber, requested.cX, candidate.cX),
 					A3($enkidatron$elm_cldr$Internal$Options$score, $enkidatron$elm_cldr$Internal$Options$rankFractionalDigits, requested.g4, candidate.g4),
-					A3($enkidatron$elm_cldr$Internal$Options$score, $enkidatron$elm_cldr$Internal$Options$rankName, requested.au, candidate.au),
+					A3($enkidatron$elm_cldr$Internal$Options$score, $enkidatron$elm_cldr$Internal$Options$rankName, requested.aj, candidate.aj),
 					A2($enkidatron$elm_cldr$Internal$Options$scoreHour12, requested.hg, candidate.hg)
 				]));
 	});
@@ -49091,10 +49091,10 @@ var $enkidatron$elm_cldr$Internal$Options$dateTimeMatchScore = F2(
 		return A2($enkidatron$elm_cldr$Internal$Options$dateMatchScore, requested, candidate) + A2($enkidatron$elm_cldr$Internal$Options$timeMatchScore, requested, candidate);
 	});
 var $enkidatron$elm_cldr$Internal$Options$dateToDateTime = function (opts) {
-	return {W: opts.W, gN: $elm$core$Maybe$Nothing, gW: opts.gW, g4: $elm$core$Maybe$Nothing, fA: $elm$core$Maybe$Nothing, hg: $elm$core$Maybe$Nothing, eG: $elm$core$Maybe$Nothing, h$: opts.h$, ie: $elm$core$Maybe$Nothing, cX: $elm$core$Maybe$Nothing, i5: opts.i5, ja: opts.ja, au: $elm$core$Maybe$Nothing};
+	return {W: opts.W, gN: $elm$core$Maybe$Nothing, gW: opts.gW, g4: $elm$core$Maybe$Nothing, fA: $elm$core$Maybe$Nothing, hg: $elm$core$Maybe$Nothing, eG: $elm$core$Maybe$Nothing, h$: opts.h$, ie: $elm$core$Maybe$Nothing, cX: $elm$core$Maybe$Nothing, i5: opts.i5, ja: opts.ja, aj: $elm$core$Maybe$Nothing};
 };
 var $enkidatron$elm_cldr$Internal$Options$timeToDateTime = function (opts) {
-	return {W: $elm$core$Maybe$Nothing, gN: opts.gN, gW: $elm$core$Maybe$Nothing, g4: opts.g4, fA: opts.fA, hg: opts.hg, eG: opts.eG, h$: $elm$core$Maybe$Nothing, ie: opts.ie, cX: opts.cX, i5: $elm$core$Maybe$Nothing, ja: $elm$core$Maybe$Nothing, au: opts.au};
+	return {W: $elm$core$Maybe$Nothing, gN: opts.gN, gW: $elm$core$Maybe$Nothing, g4: opts.g4, fA: opts.fA, hg: opts.hg, eG: opts.eG, h$: $elm$core$Maybe$Nothing, ie: opts.ie, cX: opts.cX, i5: $elm$core$Maybe$Nothing, ja: $elm$core$Maybe$Nothing, aj: opts.aj};
 };
 var $enkidatron$elm_cldr$Internal$Locale$toDateTimeAvailableFormat = function (af) {
 	switch (af.$) {
@@ -49287,17 +49287,17 @@ var $enkidatron$elm_cldr$Internal$FormatSymbols$Expand$time = F2(
 			case 9:
 				var zone = symbol.a;
 				return $enkidatron$elm_cldr$Internal$FormatSymbols$ZoneNonLocationFormat(
-					A3($elm_community$maybe_extra$Maybe$Extra$unwrap, zone, $enkidatron$elm_cldr$Internal$FormatSymbols$Convert$nameWidth, requested.au));
+					A3($elm_community$maybe_extra$Maybe$Extra$unwrap, zone, $enkidatron$elm_cldr$Internal$FormatSymbols$Convert$nameWidth, requested.aj));
 			case 10:
 				return $enkidatron$elm_cldr$Internal$FormatSymbols$ZoneIso8601Basic;
 			case 11:
 				var zone = symbol.a;
 				return $enkidatron$elm_cldr$Internal$FormatSymbols$ZoneGmtFormat(
-					A3($elm_community$maybe_extra$Maybe$Extra$unwrap, zone, $enkidatron$elm_cldr$Internal$FormatSymbols$Convert$nameWidth, requested.au));
+					A3($elm_community$maybe_extra$Maybe$Extra$unwrap, zone, $enkidatron$elm_cldr$Internal$FormatSymbols$Convert$nameWidth, requested.aj));
 			default:
 				var zone = symbol.a;
 				return $enkidatron$elm_cldr$Internal$FormatSymbols$ZoneGenericNonLocationFormat(
-					A3($elm_community$maybe_extra$Maybe$Extra$unwrap, zone, $enkidatron$elm_cldr$Internal$FormatSymbols$Convert$nameWidth, requested.au));
+					A3($elm_community$maybe_extra$Maybe$Extra$unwrap, zone, $enkidatron$elm_cldr$Internal$FormatSymbols$Convert$nameWidth, requested.aj));
 		}
 	});
 var $enkidatron$elm_cldr$Cldr$Format$DateTime$expandSymbol = F2(
@@ -49352,7 +49352,7 @@ var $enkidatron$elm_cldr$Cldr$Format$DateTime$fieldsDoNotMatch = F2(
 					A2($enkidatron$elm_cldr$Cldr$Format$DateTime$matchMaybe, a.eG, b.eG),
 					A2($enkidatron$elm_cldr$Cldr$Format$DateTime$matchMaybe, a.cX, b.cX),
 					A2($enkidatron$elm_cldr$Cldr$Format$DateTime$matchMaybe, a.g4, b.g4),
-					A2($enkidatron$elm_cldr$Cldr$Format$DateTime$matchMaybe, a.au, b.au)
+					A2($enkidatron$elm_cldr$Cldr$Format$DateTime$matchMaybe, a.aj, b.aj)
 				]));
 	});
 var $enkidatron$elm_cldr$Internal$Structures$getPattern = F2(
@@ -51061,7 +51061,7 @@ var $author$project$Timeline$Axis$axis = F6(
 													locale,
 													zone,
 													div.V,
-													(!dir) ? div.aX : div.a$,
+													(!dir) ? div.aX : div.a0,
 													last))
 											]));
 									var date = A4($author$project$Moment$add, div.V, div.aM, zone, last);
@@ -51264,7 +51264,7 @@ var $author$project$Timeline$mouseCursor = function (box) {
 				$author$project$Timeline$Utils$findSection,
 				posix,
 				_Utils_Tuple2(y, 1 - (4 / box.z)),
-				box.as);
+				box.at);
 			if (!mbsec.$) {
 				var sec = mbsec.a;
 				return A2(
@@ -51325,13 +51325,13 @@ var $elm_explorations$webgl$WebGL$Internal$DepthTest = F4(
 		return {$: 1, a: a, b: b, c: c, d: d};
 	});
 var $elm_explorations$webgl$WebGL$Settings$DepthTest$less = function (_v0) {
-	var write = _v0.bf;
-	var near = _v0.a7;
-	var far = _v0.a3;
+	var write = _v0.bg;
+	var near = _v0.a8;
+	var far = _v0.a4;
 	return A4($elm_explorations$webgl$WebGL$Internal$DepthTest, 513, write, near, far);
 };
 var $elm_explorations$webgl$WebGL$Settings$DepthTest$default = $elm_explorations$webgl$WebGL$Settings$DepthTest$less(
-	{a3: 1, a7: 0, bf: true});
+	{a4: 1, a8: 0, bg: true});
 var $elm_explorations$webgl$WebGL$Internal$enableOption = F2(
 	function (ctx, option) {
 		switch (option.$) {
@@ -51454,7 +51454,7 @@ var $author$project$Timeline$drawAllGlSections = F8(
 								0,
 								position,
 								0,
-								A4($elm_explorations$linear_algebra$Math$Matrix4$makeOrtho2D, (visible.bl - firstms) / 300000, (visible.f_ - firstms) / 300000, visible.a_, visible.fh)),
+								A4($elm_explorations$linear_algebra$Math$Matrix4$makeOrtho2D, (visible.bm - firstms) / 300000, (visible.f_ - firstms) / 300000, visible.a$, visible.fh)),
 							iy: resize / 300000
 						});
 				},
@@ -51563,122 +51563,140 @@ var $author$project$Timeline$sectionBox2html = F8(
 					$elm$core$String$fromFloat(
 						A2($elm$core$Basics$max, 5, sizev + dy)) + 'px')
 				]),
-			_Utils_ap(
-				_List_Nil,
+			$elm$core$List$concat(
 				A2(
 					$elm$core$List$filterMap,
 					$elm$core$Basics$identity,
 					_List_fromArray(
 						[
 							hideTimeBox ? $elm$core$Maybe$Nothing : $elm$core$Maybe$Just(
-							A2(
-								$elm$html$Html$div,
-								_List_fromArray(
-									[
-										A2($elm$html$Html$Attributes$style, 'font-size', '10px'),
-										$elm$html$Html$Attributes$class('dates'),
-										A2($elm$html$Html$Attributes$style, 'padding-top', '2px')
-									]),
-								_List_fromArray(
-									[
-										A2(
-										$elm$html$Html$div,
-										_List_fromArray(
-											[
-												A2($elm$html$Html$Attributes$style, 'padding-left', '2px')
-											]),
-										_List_fromArray(
-											[
-												$elm$html$Html$text(
-												A5(
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$div,
+									_List_fromArray(
+										[
+											A2($elm$html$Html$Attributes$style, 'padding-left', '2px')
+										]),
+									_List_fromArray(
+										[
+											$elm$html$Html$text(
+											function () {
+												var s_ms = $elm$time$Time$posixToMillis(start);
+												var snapped_ms = ((s_ms / 5000) | 0) * 5000;
+												var snapped_posix = $elm$time$Time$millisToPosix(snapped_ms);
+												return A5(
+													$author$project$Moment$format,
+													locale,
+													zone,
+													4,
+													$elm$core$Maybe$Just('HH'),
+													snapped_posix) + (':' + (A5(
 													$author$project$Moment$format,
 													locale,
 													zone,
 													5,
-													$elm$core$Maybe$Just('HH:mm'),
-													start) + (':' + A5(
+													$elm$core$Maybe$Just('mm'),
+													snapped_posix) + (':' + A5(
 													$author$project$Moment$format,
 													locale,
 													zone,
 													6,
 													$elm$core$Maybe$Just('ss'),
-													start)))
-											])),
-										hideTime ? $elm$html$Html$text('') : A2(
-										$elm$html$Html$div,
-										(!direction) ? _List_fromArray(
-											[
-												$elm$html$Html$Attributes$class('h-end-date')
-											]) : _List_fromArray(
-											[
-												$elm$html$Html$Attributes$class('v-end-date'),
-												A2(
-												$elm$html$Html$Attributes$style,
-												'top',
-												$elm$core$String$fromInt(
-													$elm$core$Basics$round(sizev - 12)) + 'px'),
-												A2($elm$html$Html$Attributes$style, 'right', '2px')
-											]),
-										_List_fromArray(
-											[
-												$elm$html$Html$text(
-												A5(
-													$author$project$Moment$format,
-													locale,
-													zone,
-													5,
-													$elm$core$Maybe$Just('HH:mm'),
-													end) + (':' + A5(
-													$author$project$Moment$format,
-													locale,
-													zone,
-													6,
-													$elm$core$Maybe$Just('ss'),
-													end)))
-											]))
-									]))),
-							$elm$core$Maybe$Just(
-							A2(
-								$elm$html$Html$div,
-								_List_fromArray(
-									[
-										A2(
-										$elm$html$Html$Attributes$style,
-										'font-size',
-										(sizev < 15) ? '10px' : '12px'),
-										A2($elm$html$Html$Attributes$style, 'padding-left', '2px'),
-										A2(
-										$elm$html$Html$Attributes$style,
-										'padding-top',
-										hideTimeBox ? '2px' : '0'),
-										A2(
-										$elm$html$Html$Attributes$style,
-										'height',
-										$elm$core$String$fromFloat(
+													snapped_posix))));
+											}())
+										])),
+									hideTime ? $elm$html$Html$text('') : A2(
+									$elm$html$Html$div,
+									(!direction) ? _List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('h-end-date')
+										]) : _List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('v-end-date'),
 											A2(
-												$elm$core$Basics$max,
-												5,
-												(sizev + dy) - (hideTimeBox ? 0 : 11))) + 'px'),
-										A2($elm$html$Html$Attributes$style, 'overflow', 'hidden')
-									]),
-								A2(
-									$elm$core$List$indexedMap,
-									F2(
-										function (i, label) {
-											return A2(
-												$elm$html$Html$div,
-												_List_fromArray(
-													[
-														A2($elm$html$Html$Attributes$style, 'overflow', 'hidden'),
-														A2(
-														$elm$html$Html$Attributes$style,
-														'white-space',
-														((_Utils_cmp(i, maxLabelsSel) > -1) && wrapText) ? 'wrap' : 'nowrap')
-													]),
-												$elm$core$List$singleton(
-													$elm$html$Html$text(label)));
-										}),
-									labelsSel)))
+											$elm$html$Html$Attributes$style,
+											'top',
+											$elm$core$String$fromInt(
+												$elm$core$Basics$round(sizev - 12)) + 'px'),
+											A2($elm$html$Html$Attributes$style, 'right', '2px')
+										]),
+									_List_fromArray(
+										[
+											$elm$html$Html$text(
+											function () {
+												var e_ms = $elm$time$Time$posixToMillis(end);
+												var snapped_ms = ((e_ms / 5000) | 0) * 5000;
+												var snapped_posix = $elm$time$Time$millisToPosix(snapped_ms);
+												return A5(
+													$author$project$Moment$format,
+													locale,
+													zone,
+													4,
+													$elm$core$Maybe$Just('HH'),
+													snapped_posix) + (':' + (A5(
+													$author$project$Moment$format,
+													locale,
+													zone,
+													5,
+													$elm$core$Maybe$Just('mm'),
+													snapped_posix) + (':' + A5(
+													$author$project$Moment$format,
+													locale,
+													zone,
+													6,
+													$elm$core$Maybe$Just('ss'),
+													snapped_posix))));
+											}())
+										]))
+								])),
+							$elm$core$Maybe$Just(
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$div,
+									_List_fromArray(
+										[
+											A2(
+											$elm$html$Html$Attributes$style,
+											'font-size',
+											(sizev < 15) ? '10px' : '12px'),
+											A2($elm$html$Html$Attributes$style, 'padding-left', '2px'),
+											A2(
+											$elm$html$Html$Attributes$style,
+											'padding-top',
+											hideTimeBox ? '2px' : '0'),
+											A2(
+											$elm$html$Html$Attributes$style,
+											'height',
+											$elm$core$String$fromFloat(
+												A2(
+													$elm$core$Basics$max,
+													5,
+													(sizev + dy) - (hideTimeBox ? 0 : 11))) + 'px'),
+											A2($elm$html$Html$Attributes$style, 'overflow', 'hidden')
+										]),
+									A2(
+										$elm$core$List$indexedMap,
+										F2(
+											function (i, label) {
+												return A2(
+													$elm$html$Html$div,
+													_List_fromArray(
+														[
+															A2($elm$html$Html$Attributes$style, 'overflow', 'hidden'),
+															A2(
+															$elm$html$Html$Attributes$style,
+															'white-space',
+															((_Utils_cmp(i, maxLabelsSel) > -1) && wrapText) ? 'wrap' : 'nowrap')
+														]),
+													_List_fromArray(
+														[
+															$elm$html$Html$text(label)
+														]));
+											}),
+										labelsSel))
+								]))
 						]))));
 	});
 var $author$project$Timeline$drawHtmlSections = function (direction) {
@@ -51723,12 +51741,12 @@ var $author$project$Timeline$drawHtmlSections = function (direction) {
 																		$author$project$Timeline$sectionBox2html,
 																		_Utils_Tuple2(locale, zone),
 																		direction,
-																		_Utils_Tuple2(sbox.bl, sbox.a_),
-																		_Utils_Tuple2(sbox.at, sbox.ay),
+																		_Utils_Tuple2(sbox.bm, sbox.a$),
+																		_Utils_Tuple2(sbox.au, sbox.ay),
 																		sbox.bq,
 																		wrapText,
 																		section,
-																		!sbox.a5));
+																		!sbox.a6));
 															},
 															allSections)),
 														function () {
@@ -51789,7 +51807,7 @@ var $author$project$Timeline$drawHtmlSections = function (direction) {
 																					$author$project$Timeline$sectionBox2html,
 																					_Utils_Tuple2(locale, zone),
 																					direction,
-																					_Utils_Tuple2(draw.bl, draw.a_),
+																					_Utils_Tuple2(draw.bm, draw.a$),
 																					_Utils_Tuple2(draw.gb, draw.aW),
 																					false,
 																					wrapText,
@@ -51990,18 +52008,18 @@ var $author$project$Timeline$sectionsView = F6(
 								sbox.q.b5 ? (box.fF * box.z) : (box.z - 4));
 							var pos = _Utils_Tuple2(
 								($author$project$Moment$fromDuration(
-									A2($author$project$Moment$durationBetween, box.aj, section.m)) * box.C) / $author$project$Timeline$Models$duration.W,
+									A2($author$project$Moment$durationBetween, box.ak, section.m)) * box.C) / $author$project$Timeline$Models$duration.W,
 								sbox.q.b5 ? 0 : ((sbox.aa * box.z) + 2));
 							return ((getter.aW(size) < 12) || (getter.c5(size) < 14)) ? $elm$core$Maybe$Nothing : $elm$core$Maybe$Just(
 								{
 									ay: getter.c5(size),
-									a5: sbox.a5,
-									bl: getter.aW(pos),
+									a6: sbox.a6,
+									bm: getter.aW(pos),
 									aa: sbox.aa,
 									q: sbox.q,
 									bq: sbox.bq,
-									a_: getter.c5(pos),
-									at: getter.aW(size)
+									a$: getter.c5(pos),
+									au: getter.aW(size)
 								});
 						} else {
 							return $elm$core$Maybe$Nothing;
@@ -52052,7 +52070,7 @@ var $author$project$Timeline$sectionsView = F6(
 									A2(
 										$elm$core$Maybe$map,
 										function (gbox) {
-											return gbox.a5;
+											return gbox.a6;
 										},
 										A2($elm$core$Dict$get, groupId, box.ax)));
 								if (A3($author$project$Timeline$Models$isSelected, groupId, section.b4, selection)) {
@@ -52061,7 +52079,7 @@ var $author$project$Timeline$sectionsView = F6(
 										A2($author$project$Moment$addDurationToPosix, section.m, moveTime),
 										A2($author$project$Moment$subtractDuration, section.G, margin)) : A2($author$project$Moment$addDurationToPosix, section.m, moveTime);
 									return {
-										a5: isSubtotal,
+										a6: isSubtotal,
 										aa: line + moveGroup,
 										q: _Utils_update(
 											section,
@@ -52079,7 +52097,7 @@ var $author$project$Timeline$sectionsView = F6(
 										bq: true
 									};
 								} else {
-									return {a5: isSubtotal, aa: line, q: section, bq: false};
+									return {a6: isSubtotal, aa: line, q: section, bq: false};
 								}
 							},
 							sections)).b)));
@@ -52106,7 +52124,7 @@ var $author$project$Timeline$sectionsView = F6(
 									getter.e3(
 										_Utils_Tuple2(
 											($author$project$Moment$fromDuration(
-												A2($author$project$Moment$durationBetween, box.aj, posTime)) * box.C) / $author$project$Timeline$Models$duration.W,
+												A2($author$project$Moment$durationBetween, box.ak, posTime)) * box.C) / $author$project$Timeline$Models$duration.W,
 											(posLine * box.z) + 2)),
 									getter.e3(
 										_Utils_Tuple2(
@@ -52133,14 +52151,14 @@ var $author$project$Timeline$sectionsView = F6(
 								var _v16 = getter.e3(
 									_Utils_Tuple2(
 										($author$project$Moment$fromDuration(
-											A2($author$project$Moment$durationBetween, box.aj, start)) * box.C) / $author$project$Timeline$Models$duration.W,
+											A2($author$project$Moment$durationBetween, box.ak, start)) * box.C) / $author$project$Timeline$Models$duration.W,
 										(line * box.z) + 2));
 								var left = _v16.a;
 								var top = _v16.b;
 								return $elm$core$Maybe$Just(
 									_List_fromArray(
 										[
-											{G: end, aW: h, bl: left, q: $elm$core$Maybe$Nothing, m: start, a_: top, gb: w}
+											{G: end, aW: h, bm: left, q: $elm$core$Maybe$Nothing, m: start, a$: top, gb: w}
 										]));
 							}());
 					case 2:
@@ -52172,16 +52190,16 @@ var $author$project$Timeline$sectionsView = F6(
 											box.z - 4);
 										var pos = _Utils_Tuple2(
 											($author$project$Moment$fromDuration(
-												A2($author$project$Moment$durationBetween, box.aj, section.m)) * box.C) / $author$project$Timeline$Models$duration.W,
+												A2($author$project$Moment$durationBetween, box.ak, section.m)) * box.C) / $author$project$Timeline$Models$duration.W,
 											(sbox.aa * box.z) + 2);
 										return $elm$core$Maybe$Just(
 											{
 												G: section.G,
 												aW: getter.c5(size),
-												bl: getter.aW(pos),
+												bm: getter.aW(pos),
 												q: $elm$core$Maybe$Just(section),
 												m: section.m,
-												a_: getter.c5(pos),
+												a$: getter.c5(pos),
 												gb: getter.aW(size)
 											});
 									} else {
@@ -52200,7 +52218,7 @@ var $author$project$Timeline$sectionsView = F6(
 											A2(
 												$elm$core$Maybe$map,
 												function ($) {
-													return $.a5;
+													return $.a6;
 												},
 												A2($elm$core$Dict$get, groupId, box.ax)));
 										return (A3($author$project$Timeline$Models$isSelected, groupId, section.b4, selection) && (!isSubtotal)) ? $elm$core$Maybe$Just(
@@ -52253,7 +52271,7 @@ var $author$project$Timeline$sectionsView = F6(
 						]),
 					_List_fromArray(
 						[
-							$author$project$Timeline$drawHtmlSections(direction)(box.bn)(box.au)(width)(height)(scrollX)(scrollY)(globalSections)($elm$core$Maybe$Nothing)($elm$core$Maybe$Nothing)(box.dJ)
+							$author$project$Timeline$drawHtmlSections(direction)(box.a_)(box.aj)(width)(height)(scrollX)(scrollY)(globalSections)($elm$core$Maybe$Nothing)($elm$core$Maybe$Nothing)(box.dJ)
 						])),
 					A2(
 					$elm$html$Html$div,
@@ -52278,7 +52296,7 @@ var $author$project$Timeline$sectionsView = F6(
 							direction,
 							width,
 							height,
-							box.aj,
+							box.ak,
 							A2(
 								$elm_explorations$linear_algebra$Math$Vector2$vec2,
 								$author$project$Moment$fromDuration(moveTime),
@@ -52286,9 +52304,9 @@ var $author$project$Timeline$sectionsView = F6(
 							$author$project$Moment$fromDuration(resize),
 							{
 								fh: (-box.ah) / box.z,
-								bl: fromTime,
+								bm: fromTime,
 								f_: endTime,
-								a_: (!box.o) ? (((-box.ah) + height) / box.z) : (((-box.ah) + width) / box.z)
+								a$: (!box.o) ? (((-box.ah) + height) / box.z) : (((-box.ah) + width) / box.z)
 							},
 							box.dr)
 						])),
@@ -52310,7 +52328,7 @@ var $author$project$Timeline$sectionsView = F6(
 						]),
 					_List_fromArray(
 						[
-							$author$project$Timeline$drawHtmlSections(direction)(box.bn)(box.au)(width)(height)(scrollX)(scrollY)(unselectSections)($elm$core$Maybe$Nothing)($elm$core$Maybe$Nothing)(box.dJ)
+							$author$project$Timeline$drawHtmlSections(direction)(box.a_)(box.aj)(width)(height)(scrollX)(scrollY)(unselectSections)($elm$core$Maybe$Nothing)($elm$core$Maybe$Nothing)(box.dJ)
 						])),
 					A2(
 					$elm$html$Html$div,
@@ -52335,7 +52353,7 @@ var $author$project$Timeline$sectionsView = F6(
 							direction,
 							width,
 							height,
-							box.aj,
+							box.ak,
 							A2(
 								$elm_explorations$linear_algebra$Math$Vector2$vec2,
 								$author$project$Moment$fromDuration(moveTime),
@@ -52343,9 +52361,9 @@ var $author$project$Timeline$sectionsView = F6(
 							$author$project$Moment$fromDuration(resize),
 							{
 								fh: (-box.ah) / box.z,
-								bl: fromTime,
+								bm: fromTime,
 								f_: endTime,
-								a_: (!box.o) ? (((-box.ah) + height) / box.z) : (((-box.ah) + width) / box.z)
+								a$: (!box.o) ? (((-box.ah) + height) / box.z) : (((-box.ah) + width) / box.z)
 							},
 							box.eV)
 						])),
@@ -52367,7 +52385,7 @@ var $author$project$Timeline$sectionsView = F6(
 						]),
 					_List_fromArray(
 						[
-							$author$project$Timeline$drawHtmlSections(direction)(box.bn)(box.au)(width)(height)(scrollX)(scrollY)(selectSections)(mbselection)(mbdraw)(box.dJ)
+							$author$project$Timeline$drawHtmlSections(direction)(box.a_)(box.aj)(width)(height)(scrollX)(scrollY)(selectSections)(mbselection)(mbdraw)(box.dJ)
 						])),
 					A2(
 					$elm$html$Html$div,
@@ -52497,11 +52515,11 @@ var $author$project$Timeline$view = F3(
 	function (attrs, box, rect) {
 		var top = (!box.o) ? 0 : box.aH;
 		var lateral = (!box.o) ? box.aH : 0;
-		var width = rect.at - lateral;
+		var width = rect.au - lateral;
 		var height = rect.ay - top;
 		var grid = $author$project$Timeline$Axis$getGrid($author$project$Timeline$Models$duration.W / box.C);
 		var unit = grid.iI * 5000;
-		var from = A2($author$project$Timeline$unscale, box.C, -box.m) + $elm$time$Time$posixToMillis(box.aj);
+		var from = A2($author$project$Timeline$unscale, box.C, -box.m) + $elm$time$Time$posixToMillis(box.ak);
 		var end = from + A2(
 			$author$project$Timeline$unscale,
 			box.C,
@@ -52531,7 +52549,7 @@ var $author$project$Timeline$view = F3(
 						var _v6 = _v5.a;
 						var time = _v6.a;
 						return $elm$core$Maybe$Just(
-							A3($author$project$Timeline$Update$snapToGridForZoom, box.C, box.au, time));
+							A3($author$project$Timeline$Update$snapToGridForZoom, box.C, box.aj, time));
 					case 5:
 						var time = _v5.b;
 						return $elm$core$Maybe$Just(time);
@@ -52543,7 +52561,7 @@ var $author$project$Timeline$view = F3(
 							A3(
 								$author$project$Timeline$Update$snapToGridForZoom,
 								box.C,
-								box.au,
+								box.aj,
 								A2($author$project$Moment$addDurationToPosix, sbox.q.m, dur)));
 					case 4:
 						var _v8 = _v5.a;
@@ -52553,7 +52571,7 @@ var $author$project$Timeline$view = F3(
 							A3(
 								$author$project$Timeline$Update$snapToGridForZoom,
 								box.C,
-								box.au,
+								box.aj,
 								A2(
 									$author$project$Moment$addDurationToPosix,
 									time,
@@ -52572,7 +52590,7 @@ var $author$project$Timeline$view = F3(
 							A3(
 								$author$project$Timeline$Update$snapToGridForZoom,
 								box.C,
-								box.au,
+								box.aj,
 								A2(
 									$author$project$Moment$addDurationToPosix,
 									time,
@@ -52606,7 +52624,7 @@ var $author$project$Timeline$view = F3(
 						A2(
 						$elm$html$Html$Attributes$style,
 						'width',
-						$elm$core$String$fromInt(rect.at) + 'px'),
+						$elm$core$String$fromInt(rect.au) + 'px'),
 						A2(
 						$elm$html$Html$Attributes$style,
 						'height',
@@ -52660,7 +52678,7 @@ var $author$project$Timeline$view = F3(
 							A2(
 							$elm$html$Html$Attributes$style,
 							'width',
-							$elm$core$String$fromInt(rect.at - axisSize) + 'px'),
+							$elm$core$String$fromInt(rect.au - axisSize) + 'px'),
 							A2(
 							$elm$html$Html$Attributes$style,
 							'height',
@@ -52821,7 +52839,7 @@ var $author$project$Timeline$view = F3(
 												A2(
 													$elm$core$List$map,
 													function ($) {
-														return $.bc;
+														return $.bd;
 													},
 													$elm$core$Dict$values(box.ax))))) + 'px'),
 									A2(
@@ -52846,12 +52864,24 @@ var $author$project$Timeline$view = F3(
 						var pos = _v2.b;
 						var time = A5(
 							$author$project$Moment$format,
-							box.bn,
-							box.au,
+							box.a_,
+							box.aj,
+							4,
+							$elm$core$Maybe$Just('HH'),
+							posix) + (':' + (A5(
+							$author$project$Moment$format,
+							box.a_,
+							box.aj,
+							5,
+							$elm$core$Maybe$Just('mm'),
+							posix) + (':' + A5(
+							$author$project$Moment$format,
+							box.a_,
+							box.aj,
 							6,
-							$elm$core$Maybe$Just('HH:mm:ss'),
-							posix);
-						var date = A4($author$project$Moment$formatI18n, box.bn, box.au, 'yyyy-MM-dd ', posix);
+							$elm$core$Maybe$Just('ss'),
+							posix))));
+						var date = A4($author$project$Moment$formatI18n, box.a_, box.aj, 'yyyy-MM-dd ', posix);
 						var _v3 = box.o;
 						if (!_v3) {
 							return A2(
@@ -52992,7 +53022,7 @@ var $author$project$Timeline$view = F3(
 						]),
 					_List_fromArray(
 						[
-							(!box.o) ? A9($elm$html$Html$Lazy$lazy8, $author$project$Timeline$Axis$hview, $author$project$Timeline$axisAttrs, box.bn, box.au, box.cy, width, height, from, end) : A9($elm$html$Html$Lazy$lazy8, $author$project$Timeline$Axis$vview, $author$project$Timeline$axisAttrs, box.bn, box.au, box.cy, width, height, from, end)
+							(!box.o) ? A9($elm$html$Html$Lazy$lazy8, $author$project$Timeline$Axis$hview, $author$project$Timeline$axisAttrs, box.a_, box.aj, box.cy, width, height, from, end) : A9($elm$html$Html$Lazy$lazy8, $author$project$Timeline$Axis$vview, $author$project$Timeline$axisAttrs, box.a_, box.aj, box.cy, width, height, from, end)
 						])),
 					(!box.o) ? A2(
 					$elm$html$Html$div,
@@ -53019,7 +53049,7 @@ var $author$project$Timeline$view = F3(
 						]),
 					_List_fromArray(
 						[
-							A6($author$project$Timeline$sectionsView, box, box.as, width, height - axisSize, from, end)
+							A6($author$project$Timeline$sectionsView, box, box.at, width, height - axisSize, from, end)
 						])) : A2(
 					$elm$html$Html$div,
 					_List_fromArray(
@@ -53045,7 +53075,7 @@ var $author$project$Timeline$view = F3(
 						]),
 					_List_fromArray(
 						[
-							A6($author$project$Timeline$sectionsView, box, box.as, width - axisSize, height, from, end)
+							A6($author$project$Timeline$sectionsView, box, box.at, width - axisSize, height, from, end)
 						])),
 					A3(
 					$author$project$Moment$between,
@@ -53158,7 +53188,7 @@ var $author$project$Widget$view = function (model) {
 							$author$project$Timeline$view,
 							cssDisplay,
 							model.d,
-							displayTotals ? ((!model.e.o) ? {ay: model.ac.ay - totalsSize, at: model.ac.at} : {ay: model.ac.ay, at: model.ac.at - totalsSize}) : model.ac)),
+							displayTotals ? ((!model.e.o) ? {ay: model.ac.ay - totalsSize, au: model.ac.au} : {ay: model.ac.ay, au: model.ac.au - totalsSize}) : model.ac)),
 						displayTotals ? A2(
 						$elm$html$Html$map,
 						$author$project$Widget$TotalsMsg,
@@ -53172,7 +53202,7 @@ var $author$project$Widget$view = function (model) {
 									'1px solid #CCC'),
 								cssDisplay),
 							model.S,
-							(!model.e.o) ? {ay: totalsSize, at: model.ac.at} : {ay: model.ac.ay, at: totalsSize})) : $elm$html$Html$text('')
+							(!model.e.o) ? {ay: totalsSize, au: model.ac.au} : {ay: model.ac.ay, au: totalsSize})) : $elm$html$Html$text('')
 					])),
 				A2(
 				$elm$html$Html$div,
