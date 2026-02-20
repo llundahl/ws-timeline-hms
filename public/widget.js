@@ -51715,7 +51715,7 @@ var $author$project$Timeline$sectionBox2html = F8(
 			(wrapText ? $elm$core$List$concatMap(
 				$elm$core$String$split('\n')) : $elm$core$Basics$identity)(labels));
 		var hideTimeBox = drawTime ? ((_Utils_eq(direction, $author$project$Timeline$Models$Horizontal) && (sizev < 25)) || (_Utils_eq(direction, $author$project$Timeline$Models$Vertical) && (sizeh < 25))) : true;
-		var hideTime = (_Utils_eq(direction, $author$project$Timeline$Models$Horizontal) && (sizeh < 100)) || (_Utils_eq(direction, $author$project$Timeline$Models$Vertical) && (sizev < 35));
+		var hideTime = (_Utils_eq(direction, $author$project$Timeline$Models$Horizontal) && (sizeh < 80)) || (_Utils_eq(direction, $author$project$Timeline$Models$Vertical) && (sizev < 35));
 		var dy = 0;
 		var dx = 0;
 		var color_ = $author$project$Timeline$Models$findColor(color);
@@ -51799,7 +51799,7 @@ var $author$project$Timeline$sectionBox2html = F8(
 													$author$project$Moment$format,
 													locale,
 													zone,
-													$author$project$Moment$Second,
+													$author$project$Moment$Minute,
 													$elm$core$Maybe$Just('HH:mm:ss'),
 													start))
 											])),
@@ -51825,7 +51825,7 @@ var $author$project$Timeline$sectionBox2html = F8(
 													$author$project$Moment$format,
 													locale,
 													zone,
-													$author$project$Moment$Second,
+													$author$project$Moment$Minute,
 													$elm$core$Maybe$Just('HH:mm:ss'),
 													end))
 											]))
